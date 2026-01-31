@@ -2885,6 +2885,10 @@ footer {
         color: #fff;
         text-transform: uppercase;
         letter-spacing: 1px;
+        text-decoration: none;
+        /* Ensure no underline when it becomes a link */
+        cursor: pointer;
+        pointer-events: auto;
         opacity: 0;
         /* Hidden initially, fades in */
         transform: translateY(-10px);
@@ -2894,7 +2898,8 @@ footer {
         /* FIX: Prevent Overlap */
         margin-right: 20px;
         position: relative;
-        z-index: 2002;
+        z-index: 2010;
+        /* Definitely above nav (2000) */
         flex-shrink: 0;
     }
 
@@ -2949,6 +2954,9 @@ footer {
         align-items: center;
         gap: 15px;
         /* Spacing between links */
+        position: relative;
+        z-index: 2000;
+        /* Ensure below brand (2010) */
         list-style: none;
         margin: 0;
         padding: 0 0 0 15px;
@@ -2965,6 +2973,11 @@ footer {
         /* Polish: Fade out content as it hits the logo */
         mask-image: linear-gradient(to right, transparent, black 20px);
         -webkit-mask-image: linear-gradient(to right, transparent, black 20px);
+    }
+
+    /* FIX: Hide 'Home' link in mobile nav as requested */
+    .mobile-scroll-nav li:first-child {
+        display: none;
     }
 
     .mobile-scroll-nav::-webkit-scrollbar {
@@ -3139,5 +3152,101 @@ footer {
         justify-content: flex-end !important;
         flex: 1;
         /* Take remaining space if needed */
+    }
+}
+
+/* --- OPTIMIZED MOBILE TYPOGRAPHY & SPACING --- */
+@media (max-width: 767px) {
+
+    html,
+    body {
+        font-size: 16px;
+        /* Base for REM */
+    }
+
+    /* Readable Body Text with Safe Spacing */
+    p,
+    .about-text,
+    .bio-text,
+    .case-brief {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+
+    /* Scaled Down Headings */
+    h1,
+    .hero-title {
+        font-size: 2.4rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 15px !important;
+    }
+
+    h2,
+    .section-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 25px !important;
+    }
+
+    h3,
+    .case-title {
+        font-size: 1.5rem !important;
+    }
+
+    /* Standard Container Spacing */
+    .container,
+    .hero-container,
+    section {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* --- TEXT ALIGNMENT & SINGLE LINE HEADERS --- */
+@media (max-width: 767px) {
+
+    /* Justify Body Text */
+    p,
+    .about-text,
+    .bio-text,
+    .case-brief,
+    .contact-brief {
+        text-align: justify !important;
+        text-justify: inter-word !important;
+        hyphens: auto !important;
+        font-size: 0.85rem !important;
+        /* Smaller body text */
+        line-height: 1.5 !important;
+    }
+
+    /* Compact Headers (Allow Wrap) */
+    h1,
+    h2,
+    h3,
+    .hero-title,
+    .section-title,
+    .case-title {
+        white-space: normal !important;
+        /* Allow wrapping */
+        overflow: visible !important;
+        text-overflow: clip !important;
+        width: 100% !important;
+        display: block !important;
+    }
+
+    /* Aggressive scaling for titles */
+    h1,
+    .hero-title {
+        font-size: 1.8rem !important;
+        /* Much smaller */
+        line-height: 1.1 !important;
+    }
+
+    h2,
+    .section-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 15px !important;
     }
 }

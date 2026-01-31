@@ -201,9 +201,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         mobileStickyBar.className = 'mobile-sticky-bar';
 
                         // Add Brand
-                        const brand = document.createElement('div');
+                        const brand = document.createElement('a'); // Changed to anchor
                         brand.className = 'mobile-brand';
                         brand.innerText = 'SD.';
+                        brand.href = '#hero'; // Link to top
+                        brand.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        });
                         mobileStickyBar.appendChild(brand);
 
                         document.body.appendChild(mobileStickyBar);
@@ -397,3 +402,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+// FORCE FIX: Event Delegation for Mobile Brand Link
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('mobile-brand')) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+});
