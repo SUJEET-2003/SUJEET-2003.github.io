@@ -1,0 +1,2913 @@
+:root {
+    --bg-color: #050505;
+    --card-bg: #111;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent-color: #ffffff;
+    /* White accent for premium look, or keep teal if preferred. Let's go white/monochrome with subtle accents */
+    --accent-secondary: #64ffda;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Osty Style Hero CSS Overhaul & Layout Fixes */
+
+body {
+    background-color: #1c1c1c;
+    /* Lighter charcoal background */
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23333' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    overflow-y: auto;
+    cursor: url('../assets/cursor.svg') 5 4, auto;
+    /* Custom SVG Arrow with Hotspot */
+    /* Custom SVG Arrow Cursor */
+}
+
+/* Custom Cursor styles removed */
+
+
+/* Background Grain Texture */
+.bg-grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.07'/%3E%3C/svg%3E");
+    opacity: 0.6;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+/* Background Typography Container */
+.bg-typography-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    width: 150vw;
+    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0px;
+    z-index: -5;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Individual Text Rows */
+.bg-text-row {
+    font-family: var(--font-heading);
+    font-size: 13vw;
+    font-weight: 900;
+    line-height: 0.85;
+    white-space: nowrap;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ffffff 0%, #8a8a8a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.03;
+    letter-spacing: -2px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Alternate row alignments */
+.row-1 {
+    margin-left: -20vw;
+}
+
+.row-2 {
+    margin-left: 10vw;
+}
+
+.row-3 {
+    margin-left: -15vw;
+}
+
+.row-4 {
+    margin-left: 5vw;
+}
+
+/* Obsolete */
+.bg-text {
+    display: none;
+}
+
+.main-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+section {
+    padding: 80px 0;
+    /* Consistent spacing between sections */
+    position: relative;
+    /* Ensure section is above fixed bg-text if needed, or let bg-text sit behind */
+    z-index: 1;
+}
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 0 !important;
+}
+
+/* Grid Layout for Hero */
+.hero-layout-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    /* Fixed Brand width, flexible card width */
+    gap: 60px;
+    width: 100%;
+    align-items: center;
+}
+
+/* Left Side Branding - Character Title Style */
+.hero-brand-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: clamp(60px, 8vw, 100px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 0.85;
+    letter-spacing: -4px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 0px #000;
+    /* Hard shadow for title */
+    -webkit-text-stroke: 1px transparent;
+}
+
+/* Design-heavy subtext - Comic Caption Style */
+.brand-subtext {
+    font-family: 'Inter', sans-serif;
+    /* Clean contrast */
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    background: #000;
+    padding: 10px 15px;
+    display: inline-block;
+    /* Wraps tightly */
+    align-self: flex-start;
+    box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.2);
+    transform: rotate(-2deg);
+    /* Dynamic tilt */
+}
+
+.brand-highlight {
+    color: var(--accent-secondary);
+    font-weight: 900;
+}
+
+/* White Hero Card Container - Comic Panel Style */
+.hero-card-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    /* Slight roundness, mostly sharp */
+    border: 3px solid #000;
+    /* Thick comic border */
+    padding: 60px 70px;
+    box-shadow: 12px 12px 0px rgba(0, 0, 0, 1);
+    /* Hard solid shadow */
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: auto;
+    justify-content: flex-start;
+    transition: transform 0.2s ease;
+}
+
+.hero-card-container:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 14px 14px 0px rgba(0, 0, 0, 1);
+}
+
+/* Hero Header / Nav */
+.hero-header {
+    display: flex;
+    justify-content: center;
+    /* Centered alignment */
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #000;
+    margin-bottom: 40px;
+}
+
+.logo-mini {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #000;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.hero-nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.hero-nav a {
+    color: #000;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    position: relative;
+    text-decoration: none;
+}
+
+.hero-nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #000;
+    transition: width .3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.hero-nav a:hover::after {
+    width: 100%;
+}
+
+/* Main Hero Content */
+.hero-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-top: 10px;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 900;
+    color: #000;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    max-width: 700px;
+    text-transform: uppercase;
+    /* Force uppercase for impact */
+}
+
+.hero-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: #000;
+    /* Solid black for contrast */
+    max-width: 550px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    font-weight: 500;
+    border-left: 4px solid var(--accent-secondary);
+    /* Accent line */
+    padding-left: 15px;
+    text-align: left;
+    /* Magazine/Manga text block feel */
+    align-self: center;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    z-index: 5;
+    margin-bottom: 10px;
+}
+
+/* Anime Action Buttons */
+.btn {
+    padding: 16px 40px;
+    border-radius: 8px;
+    /* Sharp corners */
+    font-weight: 800;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    text-decoration: none;
+    display: inline-block;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border: 3px solid #000;
+    /* Strong border */
+    position: relative;
+}
+
+.btn-primary {
+    background-color: #000;
+    color: #fff;
+    box-shadow: 6px 6px 0px var(--accent-secondary);
+    /* Accent shadow */
+}
+
+.btn-primary:hover {
+    background: #222;
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px var(--accent-secondary);
+}
+
+.btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--accent-secondary);
+}
+
+.btn-secondary {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 6px 6px 0px #000;
+    /* Hard black shadow */
+}
+
+.btn-secondary:hover {
+    background: var(--accent-secondary);
+    border-color: #000;
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px #000;
+}
+
+.btn-secondary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+/* Visual Cluster Removed */
+
+/* Mobile Responsiveness for Split Layout */
+@media (max-width: 1100px) {
+    .hero-layout-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .hero-brand-column {
+        text-align: center;
+        align-items: center;
+    }
+
+    .brand-name {
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
+
+    .hero-nav ul {
+        display: none;
+        /* Hide nav links on tablet/mobile size for simplicity, or use hamburger if added back */
+    }
+
+    .hero-card-container {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+}
+
+
+/* Section Headers */
+.section-title {
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    letter-spacing: -2px;
+}
+
+.section-title span {
+    color: var(--accent-secondary);
+    margin-right: 15px;
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+.section-title::after {
+    display: none;
+}
+
+/* About Section - Comic Profile Style */
+.about-section {
+    position: relative;
+    padding: 100px 0;
+}
+
+.about-profile-wrapper {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Profile Left: Image Frame */
+.profile-card-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-frame {
+    position: relative;
+    border: 3px solid #000;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 10px 10px 0px #000;
+    transition: transform 0.2s;
+}
+
+.profile-frame:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 13px 13px 0px #000;
+}
+
+.info-img-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid #000;
+}
+
+.info-img-wrapper img {
+    width: 100%;
+    display: block;
+    filter: grayscale(100%) contrast(1.1);
+    /* Manga style B&W */
+    transition: filter 0.3s;
+}
+
+.profile-frame:hover img {
+    filter: none;
+}
+
+/* Stats Block */
+.profile-stats {
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    border: 3px solid #000;
+    box-shadow: 8px 8px 0px var(--accent-secondary);
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #333;
+    font-family: 'monospace';
+    font-size: 0.9rem;
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: #888;
+}
+
+.stat-value {
+    color: var(--accent-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Profile Right: Panels */
+.profile-card-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.bio-panel,
+.tech-panel {
+    border-left: 5px solid #000;
+    padding-left: 30px;
+    position: relative;
+}
+
+.panel-header {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 20px;
+    background: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.bio-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    /* Light text on dark bg context */
+    margin-bottom: 20px;
+    max-width: 700px;
+}
+
+.bio-text strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* Tech Grid */
+.tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tech-item {
+    background: #111;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 8px 16px;
+    font-family: monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.tech-item:hover {
+    background: var(--accent-secondary);
+    color: #000;
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 15px var(--accent-secondary);
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness for About */
+@media (max-width: 900px) {
+    .about-profile-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .profile-card-left {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* Skills Section - Anime Arsenal Style */
+.skills-arsenal-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.skill-category-panel {
+    background: #fff;
+    border: 3px solid #000;
+    padding: 0;
+    box-shadow: 8px 8px 0px #000;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-category-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 12px 12px 0px #000;
+}
+
+.category-header {
+    background: #000;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 3px solid #000;
+}
+
+.category-icon {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent-secondary);
+    border: 1px solid var(--accent-secondary);
+    padding: 2px 6px;
+}
+
+.category-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.ability-grid {
+    padding: 25px;
+    display: grid;
+    gap: 15px;
+}
+
+.ability-card {
+    background: #f0f0f0;
+    border: 2px solid #000;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s;
+    /* cursor: default; Removed to allow custom cursor */
+    position: relative;
+    /* Context for pseudo-element */
+}
+
+/* Fix for hover glitch - extends hit area */
+.ability-card::after {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    z-index: -1;
+}
+
+.ability-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ability-name {
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.ability-card i {
+    font-size: 1.5rem;
+    color: #000;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+.ability-card:hover i {
+    color: #000;
+    text-shadow: 0 0 15px var(--accent-secondary);
+    transform: scale(1.1);
+    /* Slight pop for the icon too since it's staying black */
+}
+
+/* Styles for Image Icons (e.g. PowerBI) */
+.skill-icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.2s, filter 0.2s;
+    /* Optional: filter to grayscale if desired initially, or keep natural color */
+    /* filter: grayscale(100%); */
+}
+
+.ability-card:hover .skill-icon-img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px var(--accent-secondary));
+}
+
+/* Projects Section - Comic Case Files */
+.projects-case-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.case-file-panel {
+    background: #fff;
+    border: 3px solid #000;
+    box-shadow: 10px 10px 0px #000;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.case-file-panel:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 13px 13px 0px #000;
+}
+
+.case-header {
+    background: #000;
+    color: #fff;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #000;
+}
+
+.case-id {
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--accent-secondary);
+    letter-spacing: 1px;
+}
+
+.case-status {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: #fff;
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 2px;
+}
+
+.case-body {
+    padding: 30px;
+}
+
+.case-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.case-brief {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 25px;
+    border-left: 4px solid var(--accent-secondary);
+    padding-left: 15px;
+}
+
+.case-specs {
+    margin-bottom: 25px;
+}
+
+.spec-label {
+    display: block;
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag {
+    background: #000;
+    color: #fff;
+    font-family: monospace;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border: 1px solid #000;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.case-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    border-top: 2px dashed #ccc;
+    padding-top: 20px;
+}
+
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    background: #fff;
+    color: #000;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    box-shadow: 4px 4px 0px #000;
+}
+
+.btn-action:hover {
+    background: #000;
+    color: #fff;
+    box-shadow: 6px 6px 0px var(--accent-secondary);
+    transform: translate(-2px, -2px);
+}
+
+.btn-action i {
+    font-size: 1.1rem;
+}
+
+/* Contact Section - Comic Interface */
+.contact-section {
+    padding: 100px 0;
+}
+
+.contact-panel-wrapper {
+    background: #fff;
+    border: 3px solid #000;
+    box-shadow: 12px 12px 0px #000;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Decoration lines for panel */
+.contact-panel-wrapper::before {
+    content: "/// COMMS-LINK ACTIVE";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    font-family: monospace;
+    font-weight: 700;
+    background: #000;
+    color: #fff;
+    padding: 2px 10px;
+    font-size: 0.9rem;
+}
+
+.contact-heading {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    line-height: 0.9;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.contact-brief {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+    font-weight: 500;
+    max-width: 400px;
+}
+
+/* Comic Form Styles */
+.comic-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.comic-form input,
+.comic-form textarea {
+    background: #111;
+    border: 2px solid #000;
+    color: #fff;
+    padding: 12px 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.comic-form input:focus,
+.comic-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
+    background: #000;
+}
+
+.comic-form input::placeholder,
+.comic-form textarea::placeholder {
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    justify-content: center;
+    border-width: 2px;
+}
+
+/* Mobile Responsiveness for Contact */
+@media (max-width: 800px) {
+    .contact-panel-wrapper {
+        grid-template-columns: 1fr;
+        padding: 30px;
+        gap: 40px;
+    }
+
+    .contact-heading {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile Nav Adjustments */
+@media (max-width: 768px) {
+    .nav-links li {
+        margin: 16px 0;
+    }
+
+    header {
+        padding: 20px;
+    }
+}
+
+/* Footer - Cyber Ending */
+footer {
+    padding: 80px 20px 40px;
+    text-align: center;
+    color: #666;
+    margin-top: 50px;
+    background: transparent;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-system-label {
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--accent-secondary);
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    border-bottom: 2px solid rgba(100, 255, 218, 0.2);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 10px 0;
+}
+
+.social-links a {
+    font-size: 22px;
+    color: #888;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a:hover {
+    color: #fff;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px var(--accent-secondary));
+}
+
+.footer-signature {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* System Loader */
+#system-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.5s ease-out, visibility 0.5s;
+}
+
+#system-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    font-family: monospace;
+    text-align: center;
+}
+
+.loader-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-secondary);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 2px;
+    background: #333;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-secondary);
+    animation: loadProgress 1s linear forwards;
+}
+
+@keyframes loadProgress {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+/* Terminal Alert Style - Cyberpunk */
+.terminal-alert {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 5px;
+    padding: 5px 10px;
+    letter-spacing: 1px;
+    animation: flashAlert 0.3s;
+    text-transform: uppercase;
+    border-left: 3px solid;
+}
+
+.terminal-alert.error {
+    color: #ff3333;
+    /* Red error */
+    border-color: #ff3333;
+    background: rgba(255, 0, 0, 0.1);
+}
+
+.terminal-alert.success {
+    color: #33ff33;
+    /* Green success */
+    border-color: #33ff33;
+    background: rgba(0, 255, 0, 0.1);
+}
+
+@keyframes flashAlert {
+    0% {
+        opacity: 0;
+        transform: translateX(-5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* --- Responsive Navigation & Hamburger --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001; /* Above mobile menu */
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #000;
+}
+
+/* Hamburger Animation */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Nav Drawer (Hidden by default on Desktop) */
+@media (max-width: 767px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        gap: 0;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        height: 100vh; /* Full screen */
+        text-align: center;
+        transition: 0.4s ease;
+        z-index: 1000;
+        padding-top: 100px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+    
+    .nav-links a {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* --- Enhanced Responsiveness Overrides --- */
+
+/* Tablet & Small Desktop (Max 1199px) */
+@media (max-width: 1199px) {
+    .hero-layout-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero-brand-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-card-container {
+        padding: 40px 30px;
+        max-width: 100%;
+    }
+
+    /* Skills: 2 Columns */
+    .skills-arsenal-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    /* About: Stack */
+    .about-profile-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+    }
+    
+    .profile-card-left {
+        margin: 0 auto;
+    }
+}
+
+/* Mobile (Max 767px) */
+@media (max-width: 767px) {
+    /* Fonts */
+    .brand-name { font-size: clamp(48px, 12vw, 70px) !important; }
+    .hero-title { font-size: clamp(28px, 8vw, 40px) !important; }
+    .section-title { font-size: clamp(28px, 6vw, 36px) !important; }
+
+    /* Hero */
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    /* Skills: 1 Column */
+    .skills-arsenal-wrapper {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Projects */
+    .case-header, .case-actions {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .case-actions {
+        width: 100%;
+    }
+    
+    .case-status {
+        font-size: 0.7rem;
+        align-self: flex-start;
+    }
+
+    .btn-action { /* Assuming class name */
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .case-actions a {
+         width: 100%;
+         text-align: center;
+         display: block;
+    }
+    
+    /* Mobile Menu Fixes */
+    .nav-links {
+        padding-top: 120px; /* Ensure space for header */
+        background-color: #ffffff;
+        z-index: 999;
+    }
+}
+
+
+/* --- Fixes for Mobile UI Bugs --- */
+
+@media (max-width: 767px) {
+    /* 1. Fix Title Alignment */
+    .hero-brand-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .brand-subtext {
+        align-self: center !important;
+        transform: rotate(-2deg) !important; /* Keep the tilt but center it */
+        margin-top: 10px;
+    }
+
+    /* 2. Fix Background Text Fading/Scaling */
+    .bg-text-row {
+        font-size: 8vh !important; /* Smaller, relative to viewport height */
+        line-height: 1;
+        opacity: 0.04; /* Slightly more visible if needed, or keep subtle */
+        width: auto; /* Allow natural width */
+        white-space: nowrap;
+    }
+    
+    .bg-typography-container {
+        width: 200vh; /* Ensure it covers rotation */
+        left: -50vh; /* Re-center somewhat */
+    }
+
+    /* 3. Fix Hamburger Menu Visibility */
+    .hero-nav ul {
+        display: none; /* Hide default list layout */
+    }
+    
+    .hero-nav ul.nav-links {
+        display: flex; /* Restore flex for the drawer when active */
+    }
+    
+    /* Ensure the hamburger itself is clickable */
+    .hamburger {
+        display: block !important;
+        position: relative; /* Ensure it catches clicks */
+    }
+}
+
+
+/* --- Fixes for Mobile Menu & Background Filling --- */
+
+@media (max-width: 767px) {
+    /* 1. Fix Menu clipping: Remove transform from parent to allow fixed child to cover screen */
+    .hero-card-container {
+        transform: none !important;
+        transition: none !important;
+        box-shadow: 10px 10px 0px rgba(0, 0, 0, 1) !important; /* Keep shadow static */
+    }
+    
+    /* 2. Ensure Menu covers 100% of viewport */
+    .nav-links {
+        width: 100vw !important;
+        height: 100vh !important; /* Fallback */
+        height: 100dvh !important; /* Modern mobile height */
+        left: -100vw !important; /* Move fully off-screen */
+        top: 0 !important;
+        position: fixed !important;
+        display: flex !important; /* Ensure flex is active for active state */
+    }
+    
+    .nav-links.active {
+        left: 0 !important;
+    }
+
+    /* 3. Make Background Text HUGE and Fill Screen like Desktop */
+    .bg-text-row {
+        font-size: 18vw !important; /* Large, fills width */
+        opacity: 0.05; /* Subtle but visible */
+        line-height: 0.9;
+        margin-left: 0 !important; /* Reset offsets to prevent horizontal scroll issues if any */
+        width: 100%;
+    }
+    
+    .bg-typography-container {
+        width: 100%;
+        left: 0;
+        transform: rotate(-10deg) scale(1.5); /* Rotate whole container to fill */
+        top: 40%;
+    }
+    
+    /* 4. Refine Title alignment (less tilt for better center perception) */
+    .brand-subtext {
+        transform: rotate(-1deg) !important;
+        margin-top: 15px;
+    }
+}
+
+
+/* --- Fix for Mobile Background Centering & Coverage --- */
+
+@media (max-width: 767px) {
+    .bg-typography-container {
+        width: 300vw !important; /* Massive width to ensure rotation doesn't show edges */
+        height: 300vh !important; /* Massive height */
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) rotate(-15deg) !important; /* Perfect center + rotation */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important; /* Center text vertically in container */
+        align-items: center !important; /* Center text horizontally */
+        gap: 20px !important; /* Space between lines */
+    }
+
+    .bg-text-row {
+        width: 100% !important;
+        text-align: center !important;
+        margin-left: 0 !important;
+        font-size: 15vh !important; /* Scaling based on height to ensure fill */
+        opacity: 0.05 !important;
+        white-space: nowrap !important;
+    }
+}
+
+
+/* --- Final Polish: Professional Glass Modal Menu --- */
+
+@media (max-width: 767px) {
+    /* Reset full screen properties */
+    .nav-links {
+        width: 85% !important;
+        height: auto !important; /* Short, fit to content */
+        min-height: auto !important;
+        left: 50% !important;
+        top: 90px !important; /* Below header */
+        bottom: auto !important;
+        transform: translateX(-50%) translateY(-20px) scale(0.95) !important; /* Start slightly off */
+        
+        /* Glass Effect */
+        background: rgba(255, 255, 255, 0.85) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.6) !important;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15) !important;
+        border-radius: 24px !important;
+        
+        padding: 40px 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important; /* Smooth apple-like spring */
+    }
+
+    .nav-links.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateX(-50%) translateY(0) scale(1) !important;
+        left: 50% !important; /* Keep centered */
+    }
+
+    .nav-links li {
+        margin: 15px 0 !important;
+    }
+    
+    .nav-links a {
+        color: #000;
+        font-weight: 800;
+        font-size: 1.2rem !important; /* Slightly smaller for compactness */
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    /* Ensure hamburger stays on top but not mixed in */
+    .hamburger {
+        z-index: 1002 !important;
+        position: relative !important;
+    }
+}
+
+
+/* --- Ultimate Mobile Menu Polish --- */
+
+@media (max-width: 767px) {
+    /* 1. Hamburger: Always on Top, Fixed Position */
+    .hamburger {
+        position: fixed !important;
+        top: 25px !important;
+        right: 25px !important;
+        z-index: 2002 !important; /* Highest priority */
+        background: rgba(255, 255, 255, 0.9); /* Tiny backing plate for visibility */
+        padding: 8px;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* 2. Glass Menu: Clearer Transparency */
+    .nav-links {
+        background: rgba(255, 255, 255, 0.4) !important; /* More transparent */
+        backdrop-filter: blur(24px) !important;
+        -webkit-backdrop-filter: blur(24px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        top: 80px !important; /* Lower it slightly */
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15) !important;
+    }
+    
+    /* Ensure links pop */
+    .nav-links a {
+        color: #000 !important;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
+
+/* --- Smart Scroll Animation --- */
+.hamburger {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.hamburger.scrolled-down {
+    transform: translateY(-200%) !important; /* Slide up and out */
+    opacity: 0;
+    pointer-events: none; /* Prevent clicks when hidden */
+}
+
+
+/* --- Fix Visual Artifacts in Menu --- */
+@media (max-width: 767px) {
+    .nav-links {
+        list-style: none !important; /* Remove the 4 dots */
+        margin: 0 !important;
+        padding: 40px 0 !important; /* Ensure padding is consistent */
+    }
+    
+    .nav-links a {
+        text-decoration: none !important; /* Remove underlines */
+        border-bottom: none !important; /* Just in case */
+    }
+}
+
+
+/* --- Mobile Profile Scroll-to-Color Effect --- */
+@media (max-width: 767px) {
+    /* Default state: Grayscale (assuming it's applied, if not, applying it here to ensure effect works) */
+    .profile-frame img {
+        filter: grayscale(100%);
+        transition: filter 0.5s ease-in-out;
+    }
+
+    /* Active state: Full Color */
+    .profile-frame img.active-color {
+        filter: grayscale(0%) !important;
+    }
+}
+
+
+/* --- Polish Text Alignment --- */
+.case-brief, 
+.profile-text, /* Assuming this class based on conventions, verified in step below */
+.about-brief,  /* Covering bases */
+.contact-brief {
+    text-align: justify !important;
+    text-justify: inter-word !important; /* Proper spacing */
+    hyphens: auto !important; /* Clean breaks on mobile */
+}
+
+
+/* --- Polish Text Alignment (Corrected) --- */
+.bio-text,
+.case-brief,
+.contact-brief {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    hyphens: auto !important;
+    max-width: 100%; /* Ensure it uses full width */
+}
+
+/* Optional: improve readability for justified text on very small screens */
+@media (max-width: 400px) {
+    .bio-text,
+    .case-brief {
+        text-align: left !important; /* Fallback for very narrow screens if justify looks bad */
+    }
+}
+
+
+/* --- Fix Hero Card White Space on Mobile --- */
+@media (max-width: 767px) {
+    .hero-header {
+        display: none !important; /* Hide empty space since menu is floating */
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+        border-bottom: none !important;
+    }
+    
+    .hero-card-container {
+        padding-top: 50px !important; /* Reduced from default to crop space */
+    }
+    
+    /* Ensure title sits nicely */
+    .hero-title {
+        margin-top: 0 !important;
+    }
+}
+
+
+/* --- Further Tighten Hero Card Alignment on Mobile --- */
+@media (max-width: 767px) {
+    .hero-card-container {
+        padding-top: 25px !important; /* Aggressively reduced from 50px */
+        padding-bottom: 30px !important;
+        justify-content: center !important; /* Center vertically if space allows */
+    }
+    
+    .hero-title {
+        margin-top: 0 !important;
+        line-height: 0.9 !important; /* Tighter line height for impact */
+        margin-bottom: 15px !important;
+    }
+
+    /* Ensure the subtitle is also tight */
+    .hero-subtitle {
+        margin-bottom: 25px !important;
+    }
+}
+
+
+/* --- Reduce Mobile Section Spacing --- */
+@media (max-width: 767px) {
+    /* Reduce vertical gap between sections */
+    section {
+        padding: 40px 0 !important; /* Was likely 80px or 100px */
+    }
+    
+    .section-title {
+        margin-bottom: 30px !important; /* Tighten title to content */
+        margin-top: 0 !important;
+    }
+    
+    /* Specific fix for Skills top gap */
+    #skills {
+        padding-top: 0 !important; /* Pull it up specifically if needed */
+        margin-top: -20px !important; /* Negative margin to pull closer to About if padding isn't enough */
+    }
+    
+    .about-profile-wrapper {
+        gap: 20px !important; /* Reduce internal gap in About */
+    }
+}
+
+
+/* --- Fix Project Card Text & Buttons on Mobile --- */
+@media (max-width: 767px) {
+    /* Hide Live Demo button on mobile */
+    .case-actions a[aria-label='Demo'] {
+        display: none !important;
+    }
+
+    /* Fix Title Word Breaking */
+    .case-title {
+        font-size: 1.5rem !important; /* Reduce from default */
+        line-height: 1.1 !important;
+        overflow-wrap: break-word !important; /* Force wrap if too long */
+        word-wrap: break-word !important;
+        hyphens: auto !important; /* Add hyphens for cleaner break */
+    }
+    
+    /* Ensure container doesn't overflow */
+    .case-body {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+}
+
+
+/* --- Refined Mobile Typography (About Section) --- */
+@media (max-width: 767px) {
+    .bio-text {
+        font-size: 1rem !important;      /* Stable REM size, no VW */
+        line-height: 1.7 !important;     /* Relaxed reading */
+        max-width: 38ch !important;      /* Optimal line length (approx 40 chars) */
+        margin-left: auto !important;    /* Center the block */
+        margin-right: auto !important;
+        padding: 0 15px !important;      /* Prevent edge touching */
+        
+        /* Disable ugly breaks */
+        hyphens: none !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important; /* Soft wrap only */
+        
+        /* Color tweaks */
+        color: #ddd !important; /* Slightly brighter for contrast against reduced bg */
+    }
+
+    /* Reduce Background Noise */
+    .bg-text-row {
+        opacity: 0.025 !important; /* Extremely subtle on mobile */
+    }
+}
+
+
+/* --- Compact Mobile Contact Section (Mission Console) --- */
+@media (max-width: 767px) {
+    .contact-section {
+        padding: 40px 0 !important; /* Reduced from 100px */
+    }
+
+    .contact-panel-wrapper {
+        padding: 25px 20px !important; /* Tighter container */
+        gap: 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        box-shadow: 8px 8px 0px #000 !important; /* Slightly smaller shadow */
+    }
+
+    /* Heading: Compact & Bold */
+    .contact-heading {
+        font-size: 2rem !important; /* Much smaller than 3.5rem */
+        line-height: 1 !important;
+        margin-bottom: 10px !important;
+    }
+
+    .contact-brief {
+        font-size: 0.95rem !important;
+        margin-bottom: 15px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Form: High Density */
+    .comic-form {
+        gap: 12px !important; /* Tighter field spacing */
+    }
+
+    .form-group label {
+        font-size: 0.7rem !important; /* Smaller labels */
+        margin-bottom: 4px !important;
+    }
+
+    .comic-form input,
+    .comic-form textarea {
+        padding: 10px !important; /* Slimmer inputs */
+        font-size: 0.95rem !important;
+        height: auto !important;
+    }
+
+    .comic-form textarea {
+        rows: 3 !important; /* Shorter text area default */
+    }
+
+    /* Button: Full Width thumb target */
+    .submit-btn {
+        width: 100% !important;
+        padding: 14px 0 !important;
+        margin-top: 5px !important;
+    }
+    
+    /* Adjust decoration line position for tighter padding */
+    .contact-panel-wrapper::before {
+        top: -20px !important;
+        font-size: 0.7rem !important;
+    }
+}
+
+
+/* --- Refined Mobile Project Card Layout --- */
+@media (max-width: 767px) {
+    /* Container & Layout */
+    .case-file-panel {
+        padding: 0 !important; /* Reset internal padding */
+        display: flex !important;
+        flex-direction: column !important;
+        box-shadow: 6px 6px 0px #000 !important; /* Reduced shadow */
+        margin-bottom: 30px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .case-header, 
+    .case-body {
+        padding: 20px !important; /* Consistent padding */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .case-header {
+         border-bottom: 2px solid #000;
+         padding-bottom: 15px !important;
+         display: flex !important;
+         flex-direction: row !important; /* Keep ID and status side-by-side if they fit, or wrap */
+         justify-content: space-between !important;
+         align-items: center !important;
+         gap: 10px;
+    }
+
+    /* Typography fixes */
+    .case-title {
+        font-size: 1.6rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+        margin-top: 0 !important;
+        
+        /* Prevent ugly breaks */
+        hyphens: none !important;
+        word-break: normal !important; 
+        overflow-wrap: break-word !important; 
+    }
+
+    .case-brief {
+        font-size: 0.95rem !important;
+        line-height: 1.65 !important;
+        margin-bottom: 20px !important;
+        
+        /* Clean reading */
+        hyphens: none !important;
+        text-align: left !important; /* Reset justify if it causes weird gaps on small col */
+    }
+
+    /* Tech Specs & Tags */
+    .case-specs {
+        margin-bottom: 25px !important;
+    }
+    
+    .tech-tags {
+        gap: 8px !important;
+    }
+    
+    .tag {
+        font-size: 0.75rem !important;
+        padding: 4px 8px !important;
+    }
+
+    /* Actions & Buttons */
+    .case-actions {
+        margin-top: 0 !important;
+        padding-top: 20px !important;
+        border-top: 1px dashed #ccc !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .btn-action {
+        width: 100% !important;
+        justify-content: center !important;
+        min-height: 48px !important; /* Large tap target */
+        margin: 0 !important;
+        font-size: 1rem !important;
+    }
+}
+
+
+/* --- Mobile Skills Loadout Refinement --- */
+@media (max-width: 767px) {
+    /* Stack Vertically */
+    .skills-arsenal-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    /* Category Card Polish */
+    .skill-category-panel {
+        box-shadow: 6px 6px 0px #000 !important; /* Reduced shadow */
+        transform: none !important; /* No hover movement */
+        transition: none !important;
+        width: 100% !important;
+    }
+    
+    .category-header {
+        padding: 12px 15px !important;
+    }
+    
+    .category-header h3 {
+        font-size: 1rem !important;
+    }
+
+    /* Skill Items List */
+    .ability-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        padding: 15px !important;
+    }
+
+    .ability-card {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        min-height: 48px !important; /* Touch friendly target */
+        margin: 0 !important;
+        padding: 10px 15px !important;
+        
+        /* Layout */
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        
+        /* Visuals */
+        box-shadow: none !important;
+        transform: none !important; /* Disable hover scale */
+        border: 1px solid #ddd !important; /* Softer border */
+        background: #f9f9f9 !important;
+    }
+
+    /* Disable hover effects */
+    .ability-card:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        background: #f9f9f9 !important;
+    }
+
+    .ability-name {
+        font-size: 0.9rem !important;
+        font-weight: 600 !important;
+        color: #333 !important;
+    }
+    
+    .ability-card i, 
+    .skill-icon-img {
+        font-size: 1.2rem !important;
+        color: #000 !important;
+        width: 20px !important; /* Fix img size */
+        height: auto !important;
+        transform: none !important; /* No zoom */
+        filter: none !important; /* No glow */
+    }
+
+    /* Ensure no unwanted hover states trigger on touch */
+    .skill-category-panel:hover {
+        transform: none !important;
+        box-shadow: 6px 6px 0px #000 !important;
+    }
+}
+
+
+/* --- Dark Tech Mobile Menu Redesign --- */
+@media (max-width: 767px) {
+    /* 1. Modal Container: Dark & Sharp */
+    .nav-links {
+        background: #0d0d0d !important; /* Solid dark */
+        border: 1px solid #333 !important; /* Tech border */
+        border-radius: 12px !important; /* Sharp/Tech corners */
+        box-shadow: 0 40px 80px rgba(0,0,0,0.8) !important;
+        
+        /* Centering */
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        width: 85% !important;
+        max-width: 350px !important;
+        height: auto !important;
+        padding: 40px 20px !important;
+        
+        /* Animation State */
+        transform: translate(-50%, -60%) scale(0.95) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        backdrop-filter: none !important; /* Remove glass */
+        z-index: 2005 !important;
+    }
+
+    .nav-links.active {
+        transform: translate(-50%, -50%) scale(1) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* 2. Menu Items: Bold & Spaced */
+    .nav-links ul {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+        width: 100% !important;
+    }
+
+    .nav-links li {
+        width: 100% !important;
+        margin: 10px 0 !important;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: all 0.3s ease 0.1s;
+    }
+    
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .nav-links a {
+        display: block !important;
+        font-family: var(--font-heading) !important;
+        font-size: 1.5rem !important; /* Big & Bold */
+        font-weight: 800 !important;
+        color: #666 !important; /* Dimmed default */
+        text-transform: uppercase;
+        text-decoration: none !important;
+        padding: 5px 0 5px 15px !important;
+        border-left: 3px solid transparent !important;
+        transition: all 0.2s !important;
+        text-shadow: none !important;
+    }
+
+    /* Active/Hover State */
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: #fff !important;
+        border-left-color: var(--accent-secondary) !important;
+        padding-left: 20px !important; /* Slide visual */
+        background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+    }
+
+    /* 3. Internal Close Button (Injected via JS) */
+    .menu-close-btn {
+        position: absolute !important;
+        top: 15px !important;
+        right: 15px !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        background: #1a1a1a !important;
+        border: 1px solid #333 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        cursor: pointer !important;
+        z-index: 2010 !important;
+    }
+    
+    .menu-close-btn::before,
+    .menu-close-btn::after {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 2px;
+        background: #fff;
+        transform: rotate(45deg);
+    }
+    
+    .menu-close-btn::after {
+        transform: rotate(-45deg);
+    }
+
+    /* Hide External Hamburger when Menu is Open */
+    body.menu-open .hamburger {
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+}
+
+
+/* --- Add Hover Pop to Contact Section --- */
+.contact-panel-wrapper {
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Ensure smooth transition */
+}
+
+.contact-panel-wrapper:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 16px 16px 0px #000; /* Increased shadow for pop effect */
+}
+
+/* On mobile, disable this hover if needed, or keep it subtle */
+@media (max-width: 767px) {
+    .contact-panel-wrapper:hover {
+        transform: none !important;
+        box-shadow: 8px 8px 0px #000 !important; /* Reset to static mobile state */
+    }
+}
+
+
+/* --- Restore Input Field Hover Animation --- */
+.comic-form input:hover,
+.comic-form textarea:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+    border-color: #666;
+}
+
+/* Ensure focus state overrides or combines nicely */
+.comic-form input:focus,
+.comic-form textarea:focus {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px var(--accent-secondary);
+    border-color: var(--accent-secondary);
+}
+
+
+/* --- Compact Desktop Project Card Layout --- */
+@media (min-width: 768px) {
+    .case-body {
+        padding: 20px 25px !important; /* Tighter padding */
+    }
+
+    .case-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    .case-brief {
+        margin-bottom: 15px !important;
+        line-height: 1.5 !important;
+        font-size: 0.95rem !important;
+        /* Optional: limit lines if user wants strict height */
+        /* display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; */
+    }
+
+    /* Layout Change: Specs and Actions on same row to save height */
+    .case-specs {
+        margin-bottom: 0 !important;
+        flex: 1; /* Take available width */
+    }
+    
+    .tech-tags {
+        margin-bottom: 10px; /* Spacer if wrapping occurs */
+    }
+
+    .case-actions {
+        margin-top: 15px !important; /* Reduced from 30px */
+        padding-top: 15px !important;
+        border-top: 1px dashed #ccc !important;
+        
+        /* Attempt to inline if wide enough, otherwise just tight stack */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+    
+    /* If we want Specs and Actions side-by-side, we need a wrapper or grid. 
+       Since HTML structure is fixed, let's keep them stacked but VERY tight.
+       Or... .case-body is a block. 
+       Actually, I can't easily grid them without changing HTML structure 
+       (Title, Brief, Specs, Actions are siblings).
+       
+       Let's just tighten vertical rhythm aggressively.
+    */
+}
+
+
+/* --- Compact Desktop Project Card Layout (Grid Optimized) --- */
+@media (min-width: 1024px) {
+    .case-body {
+        display: grid !important;
+        grid-template-areas: 
+            'title title'
+            'brief brief'
+            'specs actions';
+        grid-template-columns: 1fr auto !important; /* Specs take space, Actions hug content */
+        gap: 15px !important;
+        padding: 25px !important;
+        align-items: end !important; /* Bottom align footer items */
+    }
+
+    .case-title {
+        grid-area: title !important;
+        margin-bottom: 0 !important;
+        font-size: 1.8rem !important;
+    }
+
+    .case-brief {
+        grid-area: brief !important;
+        margin-bottom: 0 !important;
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        /* Limit to 3 lines visually for compact feel */
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .case-specs {
+        grid-area: specs !important;
+        margin-bottom: 0 !important;
+    }
+
+    .case-actions {
+        grid-area: actions !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        border-top: none !important; /* Remove separator line in this layout */
+        justify-self: end !important;
+        display: flex !important;
+        gap: 10px !important;
+    }
+    
+    .tech-tags {
+        gap: 6px !important;
+    }
+    
+    .tag {
+        font-size: 0.75rem !important;
+        padding: 3px 8px !important;
+    }
+    
+    .btn-action {
+        padding: 8px 16px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+
+/* --- Compact Desktop Contact Section --- */
+@media (min-width: 769px) {
+    .contact-panel-wrapper {
+        max-width: 800px !important; /* Reduced width */
+        padding: 35px 40px !important; /* Reduced padding (vertical/horizontal) */
+        gap: 40px !important; /* Tighter gap */
+    }
+
+    .contact-heading {
+        font-size: 3rem !important; /* Slightly smaller */
+        margin-bottom: 15px !important;
+    }
+    
+    .contact-brief {
+        font-size: 1rem !important;
+        max-width: 100% !important; /* Let it fill the smaller column */
+    }
+    
+    /* Ensure form is tight too */
+    .comic-form {
+        gap: 15px !important;
+    }
+    
+    .comic-form input,
+    .comic-form textarea {
+        padding: 10px 12px !important;
+    }
+}
+
+
+/* --- Profile Image: Scroll & Hover Color Effect (Global) --- */
+.profile-frame img {
+    filter: grayscale(100%);
+    transition: filter 0.6s cubic-bezier(0.33, 1, 0.68, 1); /* Smooth transition */
+}
+
+/* Colorize on Hover OR when Centered (active-color) */
+.profile-frame img:hover,
+.profile-frame img.active-color {
+    filter: grayscale(0%) !important;
+}
+
+
+/* --- Desktop Sticky Navigation --- */
+@media (min-width: 768px) {
+    .desktop-sticky-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Center navigation */
+        padding: 25px 0;
+        z-index: 2000;
+        transition: all 0.3s ease-in-out;
+        /* Initial transparent state */
+        background: transparent;
+    }
+
+    /* Scrolled State: Compact Command Bar */
+    .desktop-sticky-header.scrolled {
+        background: rgba(13, 13, 13, 0.95); /* Near black */
+        backdrop-filter: blur(10px);
+        padding: 15px 0;
+        border-bottom: 1px solid var(--accent-secondary);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    
+    /* Ensure nav links flow horizontally */
+    .desktop-sticky-header .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 40px !important;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background: transparent !important; /* Remove any mobile bg */
+        box-shadow: none !important;
+        position: static !important; /* Not absolute */
+        width: auto !important;
+        height: auto !important;
+    }
+
+    .desktop-sticky-header .nav-links li {
+        margin: 0 !important;
+        opacity: 1 !important; /* Ensure visible */
+        transform: none !important;
+    }
+
+    .desktop-sticky-header .nav-links a {
+        color: #fff; /* White text on dark bg */
+        font-family: var(--font-heading);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s;
+        text-shadow: none !important;
+    }
+
+    .desktop-sticky-header .nav-links a:hover {
+        color: var(--accent-secondary);
+    }
+    
+    /* Active Link Indicator (Need generic class or simply hover style) */
+    .desktop-sticky-header .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--accent-secondary);
+        transition: width 0.2s;
+    }
+
+    .desktop-sticky-header .nav-links a:hover::after {
+        width: 100%;
+    }
+}
+
+
+/* --- Desktop Scroll-Triggered Sticky Header --- */
+@media (min-width: 768px) {
+    .desktop-sticky-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 15px 0; /* Compact padding */
+        z-index: 2000;
+        
+        /* Dark System Style (Always Active for this element) */
+        background: rgba(13, 13, 13, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--accent-secondary);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        
+        /* Hidden by default (Slide out of view) */
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reveal when triggered */
+    .desktop-sticky-header.visible {
+        transform: translateY(0);
+    }
+    
+    /* Child link styling (same as before) */
+    .desktop-sticky-header .sticky-cloned-nav {
+         display: flex;
+         flex-direction: row;
+         gap: 40px;
+         align-items: center;
+         margin: 0;
+         padding: 0;
+         list-style: none;
+    }
+    
+    .desktop-sticky-header a {
+        color: #fff;
+        font-family: var(--font-heading);
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-decoration: none;
+        position: relative;
+        transition: color 0.2s;
+    }
+
+    .desktop-sticky-header a:hover {
+        color: var(--accent-secondary);
+    }
+    
+    .desktop-sticky-header a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--accent-secondary);
+        transition: width 0.2s;
+    }
+
+    .desktop-sticky-header a:hover::after {
+        width: 100%;
+    }
+}
+
+
+/* --- Refined Sticky Header Integration (No Slide) --- */
+@media (min-width: 768px) {
+    .desktop-sticky-header {
+        /* Reset transform to avoid slide */
+        transform: none !important;
+        /* Use opacity for seamless merge */
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease !important;
+    }
+
+    /* Reveal instantly or smoothly */
+    .desktop-sticky-header.visible {
+        transform: none !important;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+
+/* --- Staggered Sticky Nav Animation --- */
+@media (min-width: 768px) {
+    /* Initial State for Cloned Items */
+    .desktop-sticky-header .sticky-cloned-nav li {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly down */
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Active State (When Header is Visible) */
+    .desktop-sticky-header.visible .sticky-cloned-nav li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Stagger delays for 'follow' effect */
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(1) { transition-delay: 0.05s; }
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(2) { transition-delay: 0.1s; }
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(3) { transition-delay: 0.15s; }
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(4) { transition-delay: 0.2s; }
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(5) { transition-delay: 0.25s; }
+}
+
+
+/* --- Active Navigation Link Glow --- */
+.nav-links a.active-section,
+.sticky-cloned-nav a.active-section {
+    color: #fff !important;
+    text-shadow: 0 0 8px var(--accent-secondary), 0 0 15px var(--accent-secondary);
+}
+
+/* Force underline on active state for sticky nav */
+.desktop-sticky-header a.active-section::after {
+    width: 100% !important;
+}
+
+
+/* --- Refined Nav Logic (User Request) --- */
+
+/* 1. Disable Active Glow in Hero Card (White Box) */
+.nav-links a.active-section {
+    color: inherit !important;
+    text-shadow: none !important;
+    border-bottom: none !important;
+}
+
+/* 2. Enable Glow ONLY in Sticky Nav */
+.sticky-cloned-nav a.active-section {
+    color: #fff !important;
+    text-shadow: 0 0 8px var(--accent-secondary), 0 0 15px var(--accent-secondary) !important;
+}
+
+/* 3. Hide Contact Link in Hero Card (Desktop Only) */
+@media (min-width: 768px) {
+    .hero-nav .nav-links li:last-child {
+        display: none;
+    }
+    
+    /* Ensure it IS visible in sticky nav */
+    .sticky-cloned-nav li:last-child {
+        display: block;
+    }
+}
+
+
+/* --- FORCE FIX: Navigation Visibility & Glow --- */
+
+/* 1. DESKTOP HERO NAV (White Box) - CLEAN STATE */
+@media (min-width: 768px) {
+    /* Hide Contact Link in White Box */
+    .hero-nav .nav-links li:last-child {
+        display: none !important;
+    }
+
+    /* Remove ANY Active Glow/Color in White Box */
+    .hero-nav .nav-links a.active-section {
+        color: inherit !important;
+        text-shadow: none !important;
+        background: none !important;
+        border: none !important;
+    }
+    
+    .hero-nav .nav-links a.active-section::after {
+        width: 0 !important; /* Kill underline */
+    }
+}
+
+/* 2. DESKTOP STICKY NAV (Command Bar) - ACTIVE STATE */
+@media (min-width: 768px) {
+    /* Show Contact Link in Command Bar */
+    .desktop-sticky-header .sticky-cloned-nav li:last-child {
+        display: block !important;
+    }
+
+    /* Enable Active Glow in Command Bar */
+    .desktop-sticky-header .sticky-cloned-nav a.active-section {
+        color: #fff !important;
+        text-shadow: 0 0 8px var(--accent-secondary), 0 0 15px var(--accent-secondary) !important;
+    }
+    
+    /* Enable Active Underline in Command Bar */
+    .desktop-sticky-header .sticky-cloned-nav a.active-section::after {
+        width: 100% !important;
+    }
+}
+
+
+/* --- ULTIMATE NAV FIX: CLASS BASED & COLOR CORRECTION --- */
+
+@media (min-width: 768px) {
+    /* 1. Force Hide Contact in White Box */
+    .hero-nav .nav-contact-item {
+        display: none !important;
+    }
+
+    /* 2. Force Show Contact in Command Bar */
+    .desktop-sticky-header .sticky-cloned-nav .nav-contact-item {
+        display: block !important;
+    }
+
+    /* 3. FIX INVISIBLE ACTIVE LINK (White Box) */
+    .hero-nav .nav-links a.active-section {
+        color: #000 !important; /* Force BLACK text on white background */
+        text-shadow: none !important;
+        background: none !important;
+        border-bottom: none !important;
+        font-weight: 800 !important; /* Maintain bold weight */
+        opacity: 1 !important;
+    }
+    
+    .hero-nav .nav-links a.active-section::after {
+        width: 0 !important;
+    }
+
+    /* 4. Command Bar Active State (Glow) */
+    .sticky-cloned-nav a.active-section {
+        color: #fff !important;
+        text-shadow: 0 0 8px var(--accent-secondary), 0 0 15px var(--accent-secondary) !important;
+    }
+}
+
+
+/* --- PROFESSIONAL SYSTEM COMMAND BAR (STICKY NAV) --- */
+@media (min-width: 768px) {
+    .desktop-sticky-header {
+        /* 1. Compact & Engineered Base */
+        background: rgba(10, 10, 10, 0.98) !important; /* Deep dark, almost solid */
+        backdrop-filter: blur(8px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important; /* Subtle divider */
+        box-shadow: none !important; /* Clean, no shadow */
+        padding: 10px 0 !important; /* Reduced vertical padding */
+        height: auto !important;
+    }
+
+    /* 2. Link Typography & Interaction */
+    .sticky-cloned-nav a {
+        color: #fff !important; /* Always White */
+        font-family: var(--font-heading);
+        font-size: 0.85rem !important; /* Slightly smaller, precise */
+        font-weight: 600 !important;
+        letter-spacing: 1.5px !important; /* Wider tracking */
+        opacity: 0.8;
+        transition: opacity 0.2s ease;
+    }
+
+    .sticky-cloned-nav a:hover {
+        opacity: 1;
+        color: #fff !important; /* No color shift */
+    }
+
+    /* 3. Center-Out Underline Animation */
+    .sticky-cloned-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-secondary);
+        transform: scaleX(0); /* Hidden */
+        transform-origin: center; /* Center out */
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .sticky-cloned-nav a:hover::after {
+        transform: scaleX(1); /* Reveal */
+    }
+
+    /* 4. Active State: Persistent Glow & Underline */
+    .sticky-cloned-nav a.active-section {
+        opacity: 1 !important;
+        text-shadow: 0 0 12px rgba(100, 255, 218, 0.6) !important; /* Soft Glow */
+    }
+
+    .sticky-cloned-nav a.active-section::after {
+        transform: scaleX(1) !important; /* Persistent underline */
+        box-shadow: 0 0 10px rgba(100, 255, 218, 0.6); /* Glow on line too */
+    }
+    
+    /* 5. Ensure Contact Link Logic Persists */
+    .desktop-sticky-header .sticky-cloned-nav .nav-contact-item {
+        display: block !important;
+    }
+}
+
+
+/* --- Fix Home Link Hover Animation in White Box --- */
+@media (min-width: 768px) {
+    /* Allow hover underline even if active-section class is present */
+    .hero-nav .nav-links a.active-section:hover::after {
+        width: 100% !important;
+        background: #000 !important; /* Ensure black underline on white bg */
+    }
+}
+
+
+/* --- Refined Sticky Nav Transparency --- */
+@media (min-width: 768px) {
+    .desktop-sticky-header {
+        background: rgba(13, 13, 13, 0.85) !important; /* increased transparency from 0.95 */
+        backdrop-filter: blur(12px) !important; /* slightly stronger blur to compensate */
+    }
+}
+
+
+/* --- Mobile Sticky Header Bar (Glassmorphism) --- */
+@media (max-width: 767px) {
+    .mobile-sticky-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px; /* Comfortable touch height */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        z-index: 2001; /* Below modal (2005), above content */
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        
+        /* Initial State: Transparent */
+        background: transparent;
+        backdrop-filter: none;
+        border-bottom: 1px solid transparent;
+    }
+
+    /* Scrolled State: Dark Glass */
+    .mobile-sticky-bar.visible {
+        background: rgba(13, 13, 13, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Mobile Brand (Left Side) */
+    .mobile-brand {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0; /* Hidden initially, fades in */
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .mobile-sticky-bar.visible .mobile-brand {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Hamburger Adjustment when inside Bar */
+    .mobile-sticky-bar .hamburger {
+        position: relative !important; /* Reset fixed positioning */
+        top: auto !important;
+        right: auto !important;
+        background: transparent !important; /* Remove white backing plate */
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Ensure hamburger bars are visible against dark/light */
+    .mobile-sticky-bar .hamburger .bar {
+        background-color: #000; /* Default (on light hero) - wait, hero is white card? */
+        transition: background-color 0.3s;
+    }
+    
+    /* When bar is dark, make bars white */
+    .mobile-sticky-bar.visible .hamburger .bar {
+        background-color: #fff;
+    }
+}
+
+
+/* --- Mobile Horizontal Scroll Nav (User Request) --- */
+@media (max-width: 767px) {
+    /* 1. Hide Hamburger Completely */
+    .hamburger {
+        display: none !important;
+    }
+
+    /* 2. Style Horizontal Nav List */
+    .mobile-scroll-nav {
+        display: flex; /* Horizontal Layout */
+        flex: 1; /* Take remaining space */
+        justify-content: flex-end; /* Align right */
+        align-items: center;
+        gap: 15px; /* Spacing between links */
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 15px; /* Left padding for separation */
+        overflow-x: auto; /* Allow scrolling if tight */
+        white-space: nowrap; /* No wrapping */
+        scrollbar-width: none; /* Hide scrollbar Firefox */
+        -webkit-overflow-scrolling: touch; /* Smooth scroll */
+    }
+
+    .mobile-scroll-nav::-webkit-scrollbar {
+        display: none; /* Hide scrollbar Chrome/Safari */
+    }
+
+    /* 3. Link Styling */
+    .mobile-scroll-nav li {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .mobile-scroll-nav a {
+        color: rgba(255, 255, 255, 0.7) !important;
+        font-family: var(--font-heading);
+        font-size: 0.75rem !important; /* Compact size */
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        position: relative;
+        padding: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* 4. Active State (Glow) */
+    .mobile-scroll-nav a.active-section {
+        color: #fff !important;
+        opacity: 1 !important;
+        text-shadow: 0 0 8px var(--accent-secondary);
+    }
+
+    .mobile-scroll-nav a.active-section::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-secondary);
+        box-shadow: 0 0 5px var(--accent-secondary);
+    }
+    
+    /* Ensure Contact is visible */
+    .mobile-scroll-nav .nav-contact-item {
+        display: block !important;
+    }
+}
+
+
+/* --- Fix Mobile Scroll Nav Visibility --- */
+@media (max-width: 767px) {
+    /* Initially Hidden (Float up slightly) */
+    .mobile-scroll-nav {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        pointer-events: none; /* Prevent clicks when hidden */
+    }
+
+    /* Visible on Scroll */
+    .mobile-sticky-bar.visible .mobile-scroll-nav {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
+
+/* --- Desktop Sticky Brand (SD.) --- */
+@media (min-width: 768px) {
+    .desktop-brand {
+        position: absolute;
+        left: 40px; /* Aligned left */
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Reveal only when sticky header is visible */
+    .desktop-sticky-header.visible .desktop-brand {
+        opacity: 1;
+    }
+}
+
+
+/* --- Desktop Sticky CTA (Right Side) --- */
+@media (min-width: 768px) {
+    .desktop-cta {
+        position: absolute;
+        right: 40px; /* Aligned right */
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--font-heading);
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        opacity: 0; /* Hidden initially */
+    }
+
+    /* Reveal only when sticky header is visible */
+    .desktop-sticky-header.visible .desktop-cta {
+        opacity: 1;
+    }
+    
+    .desktop-cta:hover {
+        background: #fff;
+        color: #000;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Hide duplicate Contact link in the centered nav */
+    .sticky-cloned-nav .nav-contact-item {
+        display: none !important;
+    }
+}
+
+
+/* --- Desktop Sticky Header Layout Update (Option 1: Logo Left, Nav Right) --- */
+@media (min-width: 768px) {
+    .desktop-sticky-header {
+        /* Align Items: Space Between (Brand Left, Nav Right) */
+        justify-content: space-between !important;
+        padding: 15px 5% !important; /* Horizontal Padding */
+        box-sizing: border-box;
+    }
+
+    .desktop-brand {
+        /* Reset Absolute Positioning */
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        
+        /* Ensure Visibility Transitions work */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        margin-right: 20px; /* Spacing just in case */
+    }
+    
+    .desktop-sticky-header.visible .desktop-brand {
+        opacity: 1;
+    }
+
+    /* Ensure Nav is Right Aligned (Flex behavior handles this with Space-Between) */
+    .sticky-cloned-nav {
+        margin: 0 !important;
+        justify-content: flex-end !important;
+        flex: 1; /* Take remaining space if needed */
+    }
+}
+

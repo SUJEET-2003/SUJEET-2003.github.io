@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio Website">
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // Initialize EmailJS with your Public Key
+            // We will set this in main.js or here, but loading it early is good practice
+            emailjs.init("dbwsQ1Mf5fk2LD5kp");
+        })();
+    </script>
+</head>
+
+<body>
+    <!-- System Loader -->
+    <div id="system-loader">
+        <div class="loader-content">
+            <div class="loader-text" id="loader-text">INITIALIZING SYSTEM...</div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Background Texture Layers -->
+    <div class="bg-grain-overlay"></div>
+    <div class="bg-typography-container">
+        <!-- Repeating rows to fill screen -->
+        <div class="bg-text-row row-1">BACKEND DATA API POWERBI BACKEND DATA</div>
+        <div class="bg-text-row row-2">API POWERBI BACKEND DATA API POWERBI</div>
+        <div class="bg-text-row row-3">DATA API BACKEND POWERBI DATA API</div>
+        <div class="bg-text-row row-4">POWERBI BACKEND DATA API POWERBI</div>
+        <div class="bg-text-row row-1">BACKEND DATA API POWERBI BACKEND DATA</div>
+        <div class="bg-text-row row-2">API POWERBI BACKEND DATA API POWERBI</div>
+        <div class="bg-text-row row-3">DATA API BACKEND POWERBI DATA API</div>
+        <div class="bg-text-row row-4">POWERBI BACKEND DATA API POWERBI</div>
+        <div class="bg-text-row row-1">BACKEND DATA API POWERBI BACKEND DATA</div>
+        <div class="bg-text-row row-2">API POWERBI BACKEND DATA API POWERBI</div>
+        <div class="bg-text-row row-3">DATA API BACKEND POWERBI DATA API</div>
+        <div class="bg-text-row row-4">POWERBI BACKEND DATA API POWERBI</div>
+    </div>
+
+    <main class="main-wrapper">
+        <section id="hero" class="hero-section">
+            <div class="hero-layout-grid">
+                <!-- Left Side Branding -->
+                <div class="hero-brand-column">
+                    <h1 class="brand-name">Sujeet<br>Das.</h1>
+                    <div class="brand-subtext">
+                        Backend Engineer &<br>
+                        <span class="brand-highlight">Data Specialist</span>
+                    </div>
+                </div>
+
+                <!-- Right Side White Card -->
+                <div class="hero-card-container">
+                    <header class="hero-header">
+                        <!-- Logo Removed -->
+                        <nav class="hero-nav">
+                            <ul class="nav-links">
+                                <li><a href="#hero">Home</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#skills">Skills</a></li>
+                                <li><a href="#projects">Work</a></li>
+                                <li class="nav-contact-item"><a href="#contact">Contact</a></li>
+                            </ul>
+                            <div class="hamburger">
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                                <span class="bar"></span>
+                            </div>
+                        </nav>
+                        <div class="header-actions"></div>
+                    </header>
+
+                    <div class="hero-content-wrapper">
+                        <div class="hero-text-content">
+                            <h2 class="hero-title">Code. Data.<br>Scalable Systems.</h2>
+                            <div class="hero-buttons">
+                                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                                <a href="https://drive.google.com/file/d/169chFVu-6MwFyGBhOvYSjHTV23j8iPuG/view?usp=sharing"
+                                    target="_blank" class="btn btn-secondary">Resume</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title"><span>01.</span> ABOUT ME</h2>
+
+                <div class="about-profile-wrapper">
+                    <!-- Left Column: Image Only -->
+                    <div class="profile-card-left">
+                        <div class="profile-frame">
+                            <div class="info-img-wrapper">
+                                <img src="assets/profile.png" alt="Sujeet Das">
+                            </div>
+                            <div class="profile-decoration-corner"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Narrative -->
+                    <div class="profile-card-right">
+                        <div class="bio-panel">
+                            <p class="bio-text">
+                                I’m a B.Tech Computer Science student at <strong>DRIEMS University</strong> (CGPA 8.4)
+                                with a strong interest in backend development and data-driven systems. I focus on
+                                building scalable software solutions and extracting insights from data to solve
+                                real-world problems.
+                            </p>
+                            <p class="bio-text">
+                                I have hands-on experience as a <strong>Data Analyst Intern</strong> at Unified Mentor
+                                Pvt. Ltd and Cognifyz Technologies, where I worked on large datasets, performed
+                                exploratory data analysis, and developed interactive dashboards.
+                            </p>
+                            <p class="bio-text">
+                                I am currently strengthening my <strong>Backend Engineering</strong> skills and working
+                                on projects that
+                                combine clean system design, APIs, and data analytics.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title"><span>02.</span> SKILLS LOADOUT</h2>
+
+                <div class="skills-arsenal-wrapper">
+
+                    <!-- Group 1: Core Language -->
+                    <div class="skill-category-panel">
+                        <div class="category-header">
+                            <span class="category-icon">01</span>
+                            <h3>CORE LANGUAGE</h3>
+                        </div>
+                        <div class="ability-grid">
+                            <div class="ability-card">
+                                <span class="ability-name">PYTHON</span>
+                                <i class="devicon-python-plain"></i>
+                            </div>
+                            <div class="ability-card">
+                                <span class="ability-name">JAVASCRIPT</span>
+                                <i class="devicon-javascript-plain"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group 2: Backend & APIs -->
+                    <div class="skill-category-panel">
+                        <div class="category-header">
+                            <span class="category-icon">02</span>
+                            <h3>BACKEND & APIs</h3>
+                        </div>
+                        <div class="ability-grid">
+                            <div class="ability-card">
+                                <span class="ability-name">FASTAPI</span>
+                                <i class="devicon-fastapi-plain"></i>
+                            </div>
+                            <div class="ability-card">
+                                <span class="ability-name">SQL</span>
+                                <i class="devicon-mysql-plain"></i>
+                            </div>
+                            <div class="ability-card">
+                                <span class="ability-name">DOCKER</span>
+                                <i class="devicon-docker-plain"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Group 3: Data & Tools -->
+                    <div class="skill-category-panel">
+                        <div class="category-header">
+                            <span class="category-icon">03</span>
+                            <h3>DATA & TOOLS</h3>
+                        </div>
+                        <div class="ability-grid">
+                            <div class="ability-card">
+                                <span class="ability-name">POWER BI</span>
+                                <img src="assets/powerbi_logo.png" alt="Power BI" class="skill-icon-img">
+                            </div>
+                            <div class="ability-card">
+                                <span class="ability-name">STREAMLIT</span>
+                                <i class="devicon-streamlit-plain"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title"><span>03.</span> PROJECT ARCHIVE</h2>
+
+                <div class="projects-case-wrapper">
+
+                    <!-- Case File 1 -->
+                    <div class="case-file-panel">
+                        <div class="case-header">
+                            <span class="case-id">CASE #001</span>
+                            <span class="case-status">DEPLOYED SYSTEM</span>
+                        </div>
+                        <div class="case-body">
+                            <h3 class="case-title">Health Insurance API</h3>
+                            <p class="case-brief">
+                                <strong>OBJECTIVE:</strong> Automated premium prediction.<br>
+                                Engineered a containerized REST API using FastAPI and Docker. Integrated ML models for
+                                instant premium quotes and patient management.
+                            </p>
+
+                            <div class="case-specs">
+                                <span class="spec-label">TECH SPECS:</span>
+                                <div class="tech-tags">
+                                    <span class="tag">PYTHON</span>
+                                    <span class="tag">FASTAPI</span>
+                                    <span class="tag">DOCKER</span>
+                                    <span class="tag">SCIKIT-LEARN</span>
+                                </div>
+                            </div>
+
+                            <div class="case-actions">
+                                <a href="https://hub.docker.com/u/sujeetdas" class="btn-action" aria-label="Docker Hub"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="devicon-docker-plain"></i> DOCKER HUB
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case File 2 -->
+                    <div class="case-file-panel">
+                        <div class="case-header">
+                            <span class="case-id">CASE #002</span>
+                            <span class="case-status">FEATURED RECORD</span>
+                        </div>
+                        <div class="case-body">
+                            <h3 class="case-title">Movie Recommendation System</h3>
+                            <p class="case-brief">
+                                <strong>OBJECTIVE:</strong> Personalized content delivery.<br>
+                                Developed a collaborative filtering engine using Python and Scikit-learn to predict user
+                                preferences. deployed with a Streamlit interface for real-time interaction.
+                            </p>
+
+                            <div class="case-specs">
+                                <span class="spec-label">TECH SPECS:</span>
+                                <div class="tech-tags">
+                                    <span class="tag">PYTHON</span>
+                                    <span class="tag">SCIKIT-LEARN</span>
+                                    <span class="tag">PANDAS</span>
+                                    <span class="tag">STREAMLIT</span>
+                                </div>
+                            </div>
+
+                            <div class="case-actions">
+                                <a href="https://github.com/SUJEET-2003" class="btn-action" aria-label="GitHub"
+                                    target="_blank" rel="noopener noreferrer">
+                                    <i class="devicon-github-original"></i> VIEW SOURCE
+                                </a>
+                                <a href="#" class="btn-action" aria-label="Demo">
+                                    <i class="devicon-chrome-plain"></i> LIVE DEMO
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title"><span>04.</span> WHAT'S NEXT?</h2>
+
+                <div class="contact-panel-wrapper">
+                    <div class="contact-content-left">
+                        <h2 class="contact-heading">ESTABLISH<br>CONNECTION</h2>
+                        <p class="contact-brief">
+                            Ready to deploy a new project? My inbox is open for collaborations, opportunities, or a
+                            quick signal check.
+                        </p>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="comic-form">
+                            <div class="form-group">
+                                <label for="name">CODENAME</label>
+                                <input type="text" id="name" required placeholder="ENTER NAME">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">FREQUENCY (EMAIL)</label>
+                                <input type="email" id="email" required placeholder="ENTER EMAIL">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">TRANSMISSION DATA</label>
+                                <textarea id="message" rows="4" required placeholder="ENTER MESSAGE"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary submit-btn">TRANSMIT MESSAGE</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-system-label">/// SOCIAL LINKS ONLINE</div>
+        <div class="social-links">
+            <a href="https://github.com/SUJEET-2003" target="_blank" aria-label="GitHub"><i
+                    class="devicon-github-original"></i></a>
+            <a href="https://www.linkedin.com/in/sujeet-das-b8a09a292" target="_blank" aria-label="LinkedIn"><i
+                    class="devicon-linkedin-plain"></i></a>
+            <a href="mailto:sujeetdas460@gmail.com" aria-label="Email"><i class="devicon-google-plain"></i></a>
+        </div>
+        <p class="footer-signature">DESIGNED & ENGINEERED BY SUJEET DAS</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</html>
