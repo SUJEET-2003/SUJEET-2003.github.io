@@ -957,6 +957,11 @@ section {
     font-weight: 700;
 }
 
+.comic-form textarea {
+    resize: none;
+    /* Prevent manual resize breaking layout */
+}
+
 .submit-btn {
     width: 100%;
     margin-top: 10px;
@@ -1149,11 +1154,13 @@ footer {
         transform: translateX(0);
     }
 }
+
 /* --- Responsive Navigation & Hamburger --- */
 .hamburger {
     display: none;
     cursor: pointer;
-    z-index: 1001; /* Above mobile menu */
+    z-index: 1001;
+    /* Above mobile menu */
 }
 
 .bar {
@@ -1170,9 +1177,11 @@ footer {
 .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }
+
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
 }
+
 .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
 }
@@ -1191,12 +1200,13 @@ footer {
         flex-direction: column;
         background-color: #fff;
         width: 100%;
-        height: 100vh; /* Full screen */
+        height: 100vh;
+        /* Full screen */
         text-align: center;
         transition: 0.4s ease;
         z-index: 1000;
         padding-top: 100px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
     .nav-links.active {
@@ -1206,7 +1216,7 @@ footer {
     .nav-links li {
         margin: 20px 0;
     }
-    
+
     .nav-links a {
         font-size: 1.5rem;
     }
@@ -1237,13 +1247,13 @@ footer {
     .skills-arsenal-wrapper {
         grid-template-columns: repeat(2, 1fr) !important;
     }
-    
+
     /* About: Stack */
     .about-profile-wrapper {
         grid-template-columns: 1fr !important;
         gap: 40px;
     }
-    
+
     .profile-card-left {
         margin: 0 auto;
     }
@@ -1251,10 +1261,19 @@ footer {
 
 /* Mobile (Max 767px) */
 @media (max-width: 767px) {
+
     /* Fonts */
-    .brand-name { font-size: clamp(48px, 12vw, 70px) !important; }
-    .hero-title { font-size: clamp(28px, 8vw, 40px) !important; }
-    .section-title { font-size: clamp(28px, 6vw, 36px) !important; }
+    .brand-name {
+        font-size: clamp(48px, 12vw, 70px) !important;
+    }
+
+    .hero-title {
+        font-size: clamp(28px, 8vw, 40px) !important;
+    }
+
+    .section-title {
+        font-size: clamp(28px, 6vw, 36px) !important;
+    }
 
     /* Hero */
     .hero-buttons {
@@ -1275,36 +1294,40 @@ footer {
     }
 
     /* Projects */
-    .case-header, .case-actions {
+    .case-header,
+    .case-actions {
         flex-direction: column;
         gap: 15px;
         align-items: flex-start;
     }
-    
+
     .case-actions {
         width: 100%;
     }
-    
+
     .case-status {
         font-size: 0.7rem;
         align-self: flex-start;
     }
 
-    .btn-action { /* Assuming class name */
+    .btn-action {
+        /* Assuming class name */
         width: 100%;
         display: block;
         text-align: center;
         margin-bottom: 10px;
     }
+
     .case-actions a {
-         width: 100%;
-         text-align: center;
-         display: block;
+        width: 100%;
+        text-align: center;
+        display: block;
     }
-    
+
     /* Mobile Menu Fixes */
     .nav-links {
-        padding-top: 120px; /* Ensure space for header */
+        padding-top: 120px;
+        /* Ensure space for header */
         background-color: #ffffff;
         z-index: 999;
     }
@@ -1314,6 +1337,7 @@ footer {
 /* --- Fixes for Mobile UI Bugs --- */
 
 @media (max-width: 767px) {
+
     /* 1. Fix Title Alignment */
     .hero-brand-column {
         display: flex;
@@ -1324,37 +1348,46 @@ footer {
 
     .brand-subtext {
         align-self: center !important;
-        transform: rotate(-2deg) !important; /* Keep the tilt but center it */
+        transform: rotate(-2deg) !important;
+        /* Keep the tilt but center it */
         margin-top: 10px;
     }
 
     /* 2. Fix Background Text Fading/Scaling */
     .bg-text-row {
-        font-size: 8vh !important; /* Smaller, relative to viewport height */
+        font-size: 8vh !important;
+        /* Smaller, relative to viewport height */
         line-height: 1;
-        opacity: 0.04; /* Slightly more visible if needed, or keep subtle */
-        width: auto; /* Allow natural width */
+        opacity: 0.04;
+        /* Slightly more visible if needed, or keep subtle */
+        width: auto;
+        /* Allow natural width */
         white-space: nowrap;
     }
-    
+
     .bg-typography-container {
-        width: 200vh; /* Ensure it covers rotation */
-        left: -50vh; /* Re-center somewhat */
+        width: 200vh;
+        /* Ensure it covers rotation */
+        left: -50vh;
+        /* Re-center somewhat */
     }
 
     /* 3. Fix Hamburger Menu Visibility */
     .hero-nav ul {
-        display: none; /* Hide default list layout */
+        display: none;
+        /* Hide default list layout */
     }
-    
+
     .hero-nav ul.nav-links {
-        display: flex; /* Restore flex for the drawer when active */
+        display: flex;
+        /* Restore flex for the drawer when active */
     }
-    
+
     /* Ensure the hamburger itself is clickable */
     .hamburger {
         display: block !important;
-        position: relative; /* Ensure it catches clicks */
+        position: relative;
+        /* Ensure it catches clicks */
     }
 }
 
@@ -1362,44 +1395,54 @@ footer {
 /* --- Fixes for Mobile Menu & Background Filling --- */
 
 @media (max-width: 767px) {
+
     /* 1. Fix Menu clipping: Remove transform from parent to allow fixed child to cover screen */
     .hero-card-container {
         transform: none !important;
         transition: none !important;
-        box-shadow: 10px 10px 0px rgba(0, 0, 0, 1) !important; /* Keep shadow static */
+        box-shadow: 10px 10px 0px rgba(0, 0, 0, 1) !important;
+        /* Keep shadow static */
     }
-    
+
     /* 2. Ensure Menu covers 100% of viewport */
     .nav-links {
         width: 100vw !important;
-        height: 100vh !important; /* Fallback */
-        height: 100dvh !important; /* Modern mobile height */
-        left: -100vw !important; /* Move fully off-screen */
+        height: 100vh !important;
+        /* Fallback */
+        height: 100dvh !important;
+        /* Modern mobile height */
+        left: -100vw !important;
+        /* Move fully off-screen */
         top: 0 !important;
         position: fixed !important;
-        display: flex !important; /* Ensure flex is active for active state */
+        display: flex !important;
+        /* Ensure flex is active for active state */
     }
-    
+
     .nav-links.active {
         left: 0 !important;
     }
 
     /* 3. Make Background Text HUGE and Fill Screen like Desktop */
     .bg-text-row {
-        font-size: 18vw !important; /* Large, fills width */
-        opacity: 0.05; /* Subtle but visible */
+        font-size: 18vw !important;
+        /* Large, fills width */
+        opacity: 0.05;
+        /* Subtle but visible */
         line-height: 0.9;
-        margin-left: 0 !important; /* Reset offsets to prevent horizontal scroll issues if any */
+        margin-left: 0 !important;
+        /* Reset offsets to prevent horizontal scroll issues if any */
         width: 100%;
     }
-    
+
     .bg-typography-container {
         width: 100%;
         left: 0;
-        transform: rotate(-10deg) scale(1.5); /* Rotate whole container to fill */
+        transform: rotate(-10deg) scale(1.5);
+        /* Rotate whole container to fill */
         top: 40%;
     }
-    
+
     /* 4. Refine Title alignment (less tilt for better center perception) */
     .brand-subtext {
         transform: rotate(-1deg) !important;
@@ -1412,23 +1455,30 @@ footer {
 
 @media (max-width: 767px) {
     .bg-typography-container {
-        width: 300vw !important; /* Massive width to ensure rotation doesn't show edges */
-        height: 300vh !important; /* Massive height */
+        width: 300vw !important;
+        /* Massive width to ensure rotation doesn't show edges */
+        height: 300vh !important;
+        /* Massive height */
         top: 50% !important;
         left: 50% !important;
-        transform: translate(-50%, -50%) rotate(-15deg) !important; /* Perfect center + rotation */
+        transform: translate(-50%, -50%) rotate(-15deg) !important;
+        /* Perfect center + rotation */
         display: flex !important;
         flex-direction: column !important;
-        justify-content: center !important; /* Center text vertically in container */
-        align-items: center !important; /* Center text horizontally */
-        gap: 20px !important; /* Space between lines */
+        justify-content: center !important;
+        /* Center text vertically in container */
+        align-items: center !important;
+        /* Center text horizontally */
+        gap: 20px !important;
+        /* Space between lines */
     }
 
     .bg-text-row {
         width: 100% !important;
         text-align: center !important;
         margin-left: 0 !important;
-        font-size: 15vh !important; /* Scaling based on height to ensure fill */
+        font-size: 15vh !important;
+        /* Scaling based on height to ensure fill */
         opacity: 0.05 !important;
         white-space: nowrap !important;
     }
@@ -1438,49 +1488,56 @@ footer {
 /* --- Final Polish: Professional Glass Modal Menu --- */
 
 @media (max-width: 767px) {
+
     /* Reset full screen properties */
     .nav-links {
         width: 85% !important;
-        height: auto !important; /* Short, fit to content */
+        height: auto !important;
+        /* Short, fit to content */
         min-height: auto !important;
         left: 50% !important;
-        top: 90px !important; /* Below header */
+        top: 90px !important;
+        /* Below header */
         bottom: auto !important;
-        transform: translateX(-50%) translateY(-20px) scale(0.95) !important; /* Start slightly off */
-        
+        transform: translateX(-50%) translateY(-20px) scale(0.95) !important;
+        /* Start slightly off */
+
         /* Glass Effect */
         background: rgba(255, 255, 255, 0.85) !important;
         backdrop-filter: blur(16px) !important;
         -webkit-backdrop-filter: blur(16px) !important;
         border: 1px solid rgba(255, 255, 255, 0.6) !important;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.15) !important;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15) !important;
         border-radius: 24px !important;
-        
+
         padding: 40px 0 !important;
         opacity: 0 !important;
         visibility: hidden !important;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important; /* Smooth apple-like spring */
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        /* Smooth apple-like spring */
     }
 
     .nav-links.active {
         opacity: 1 !important;
         visibility: visible !important;
         transform: translateX(-50%) translateY(0) scale(1) !important;
-        left: 50% !important; /* Keep centered */
+        left: 50% !important;
+        /* Keep centered */
     }
 
     .nav-links li {
         margin: 15px 0 !important;
     }
-    
+
     .nav-links a {
         color: #000;
         font-weight: 800;
-        font-size: 1.2rem !important; /* Slightly smaller for compactness */
+        font-size: 1.2rem !important;
+        /* Slightly smaller for compactness */
         text-transform: uppercase;
         letter-spacing: 1px;
     }
-    
+
     /* Ensure hamburger stays on top but not mixed in */
     .hamburger {
         z-index: 1002 !important;
@@ -1492,28 +1549,33 @@ footer {
 /* --- Ultimate Mobile Menu Polish --- */
 
 @media (max-width: 767px) {
+
     /* 1. Hamburger: Always on Top, Fixed Position */
     .hamburger {
         position: fixed !important;
         top: 25px !important;
         right: 25px !important;
-        z-index: 2002 !important; /* Highest priority */
-        background: rgba(255, 255, 255, 0.9); /* Tiny backing plate for visibility */
+        z-index: 2002 !important;
+        /* Highest priority */
+        background: rgba(255, 255, 255, 0.9);
+        /* Tiny backing plate for visibility */
         padding: 8px;
         border-radius: 6px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    
+
     /* 2. Glass Menu: Clearer Transparency */
     .nav-links {
-        background: rgba(255, 255, 255, 0.4) !important; /* More transparent */
+        background: rgba(255, 255, 255, 0.4) !important;
+        /* More transparent */
         backdrop-filter: blur(24px) !important;
         -webkit-backdrop-filter: blur(24px) !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        top: 80px !important; /* Lower it slightly */
-        box-shadow: 0 20px 60px rgba(0,0,0,0.15) !important;
+        top: 80px !important;
+        /* Lower it slightly */
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
     }
-    
+
     /* Ensure links pop */
     .nav-links a {
         color: #000 !important;
@@ -1528,29 +1590,36 @@ footer {
 }
 
 .hamburger.scrolled-down {
-    transform: translateY(-200%) !important; /* Slide up and out */
+    transform: translateY(-200%) !important;
+    /* Slide up and out */
     opacity: 0;
-    pointer-events: none; /* Prevent clicks when hidden */
+    pointer-events: none;
+    /* Prevent clicks when hidden */
 }
 
 
 /* --- Fix Visual Artifacts in Menu --- */
 @media (max-width: 767px) {
     .nav-links {
-        list-style: none !important; /* Remove the 4 dots */
+        list-style: none !important;
+        /* Remove the 4 dots */
         margin: 0 !important;
-        padding: 40px 0 !important; /* Ensure padding is consistent */
+        padding: 40px 0 !important;
+        /* Ensure padding is consistent */
     }
-    
+
     .nav-links a {
-        text-decoration: none !important; /* Remove underlines */
-        border-bottom: none !important; /* Just in case */
+        text-decoration: none !important;
+        /* Remove underlines */
+        border-bottom: none !important;
+        /* Just in case */
     }
 }
 
 
 /* --- Mobile Profile Scroll-to-Color Effect --- */
 @media (max-width: 767px) {
+
     /* Default state: Grayscale (assuming it's applied, if not, applying it here to ensure effect works) */
     .profile-frame img {
         filter: grayscale(100%);
@@ -1565,13 +1634,17 @@ footer {
 
 
 /* --- Polish Text Alignment --- */
-.case-brief, 
-.profile-text, /* Assuming this class based on conventions, verified in step below */
-.about-brief,  /* Covering bases */
+.case-brief,
+.profile-text,
+/* Assuming this class based on conventions, verified in step below */
+.about-brief,
+/* Covering bases */
 .contact-brief {
     text-align: justify !important;
-    text-justify: inter-word !important; /* Proper spacing */
-    hyphens: auto !important; /* Clean breaks on mobile */
+    text-justify: inter-word !important;
+    /* Proper spacing */
+    hyphens: auto !important;
+    /* Clean breaks on mobile */
 }
 
 
@@ -1582,14 +1655,17 @@ footer {
     text-align: justify !important;
     text-justify: inter-word !important;
     hyphens: auto !important;
-    max-width: 100%; /* Ensure it uses full width */
+    max-width: 100%;
+    /* Ensure it uses full width */
 }
 
 /* Optional: improve readability for justified text on very small screens */
 @media (max-width: 400px) {
+
     .bio-text,
     .case-brief {
-        text-align: left !important; /* Fallback for very narrow screens if justify looks bad */
+        text-align: left !important;
+        /* Fallback for very narrow screens if justify looks bad */
     }
 }
 
@@ -1597,16 +1673,18 @@ footer {
 /* --- Fix Hero Card White Space on Mobile --- */
 @media (max-width: 767px) {
     .hero-header {
-        display: none !important; /* Hide empty space since menu is floating */
+        display: none !important;
+        /* Hide empty space since menu is floating */
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
         border-bottom: none !important;
     }
-    
+
     .hero-card-container {
-        padding-top: 50px !important; /* Reduced from default to crop space */
+        padding-top: 50px !important;
+        /* Reduced from default to crop space */
     }
-    
+
     /* Ensure title sits nicely */
     .hero-title {
         margin-top: 0 !important;
@@ -1617,14 +1695,17 @@ footer {
 /* --- Further Tighten Hero Card Alignment on Mobile --- */
 @media (max-width: 767px) {
     .hero-card-container {
-        padding-top: 25px !important; /* Aggressively reduced from 50px */
+        padding-top: 25px !important;
+        /* Aggressively reduced from 50px */
         padding-bottom: 30px !important;
-        justify-content: center !important; /* Center vertically if space allows */
+        justify-content: center !important;
+        /* Center vertically if space allows */
     }
-    
+
     .hero-title {
         margin-top: 0 !important;
-        line-height: 0.9 !important; /* Tighter line height for impact */
+        line-height: 0.9 !important;
+        /* Tighter line height for impact */
         margin-bottom: 15px !important;
     }
 
@@ -1637,30 +1718,37 @@ footer {
 
 /* --- Reduce Mobile Section Spacing --- */
 @media (max-width: 767px) {
+
     /* Reduce vertical gap between sections */
     section {
-        padding: 40px 0 !important; /* Was likely 80px or 100px */
+        padding: 40px 0 !important;
+        /* Was likely 80px or 100px */
     }
-    
+
     .section-title {
-        margin-bottom: 30px !important; /* Tighten title to content */
+        margin-bottom: 30px !important;
+        /* Tighten title to content */
         margin-top: 0 !important;
     }
-    
+
     /* Specific fix for Skills top gap */
     #skills {
-        padding-top: 0 !important; /* Pull it up specifically if needed */
-        margin-top: -20px !important; /* Negative margin to pull closer to About if padding isn't enough */
+        padding-top: 0 !important;
+        /* Pull it up specifically if needed */
+        margin-top: -20px !important;
+        /* Negative margin to pull closer to About if padding isn't enough */
     }
-    
+
     .about-profile-wrapper {
-        gap: 20px !important; /* Reduce internal gap in About */
+        gap: 20px !important;
+        /* Reduce internal gap in About */
     }
 }
 
 
 /* --- Fix Project Card Text & Buttons on Mobile --- */
 @media (max-width: 767px) {
+
     /* Hide Live Demo button on mobile */
     .case-actions a[aria-label='Demo'] {
         display: none !important;
@@ -1668,13 +1756,16 @@ footer {
 
     /* Fix Title Word Breaking */
     .case-title {
-        font-size: 1.5rem !important; /* Reduce from default */
+        font-size: 1.5rem !important;
+        /* Reduce from default */
         line-height: 1.1 !important;
-        overflow-wrap: break-word !important; /* Force wrap if too long */
+        overflow-wrap: break-word !important;
+        /* Force wrap if too long */
         word-wrap: break-word !important;
-        hyphens: auto !important; /* Add hyphens for cleaner break */
+        hyphens: auto !important;
+        /* Add hyphens for cleaner break */
     }
-    
+
     /* Ensure container doesn't overflow */
     .case-body {
         width: 100% !important;
@@ -1686,25 +1777,33 @@ footer {
 /* --- Refined Mobile Typography (About Section) --- */
 @media (max-width: 767px) {
     .bio-text {
-        font-size: 1rem !important;      /* Stable REM size, no VW */
-        line-height: 1.7 !important;     /* Relaxed reading */
-        max-width: 38ch !important;      /* Optimal line length (approx 40 chars) */
-        margin-left: auto !important;    /* Center the block */
+        font-size: 1rem !important;
+        /* Stable REM size, no VW */
+        line-height: 1.7 !important;
+        /* Relaxed reading */
+        max-width: 38ch !important;
+        /* Optimal line length (approx 40 chars) */
+        margin-left: auto !important;
+        /* Center the block */
         margin-right: auto !important;
-        padding: 0 15px !important;      /* Prevent edge touching */
-        
+        padding: 0 15px !important;
+        /* Prevent edge touching */
+
         /* Disable ugly breaks */
         hyphens: none !important;
         word-break: normal !important;
-        overflow-wrap: break-word !important; /* Soft wrap only */
-        
+        overflow-wrap: break-word !important;
+        /* Soft wrap only */
+
         /* Color tweaks */
-        color: #ddd !important; /* Slightly brighter for contrast against reduced bg */
+        color: #ddd !important;
+        /* Slightly brighter for contrast against reduced bg */
     }
 
     /* Reduce Background Noise */
     .bg-text-row {
-        opacity: 0.025 !important; /* Extremely subtle on mobile */
+        opacity: 0.025 !important;
+        /* Extremely subtle on mobile */
     }
 }
 
@@ -1712,20 +1811,24 @@ footer {
 /* --- Compact Mobile Contact Section (Mission Console) --- */
 @media (max-width: 767px) {
     .contact-section {
-        padding: 40px 0 !important; /* Reduced from 100px */
+        padding: 40px 0 !important;
+        /* Reduced from 100px */
     }
 
     .contact-panel-wrapper {
-        padding: 25px 20px !important; /* Tighter container */
+        padding: 25px 20px !important;
+        /* Tighter container */
         gap: 20px !important;
         display: flex !important;
         flex-direction: column !important;
-        box-shadow: 8px 8px 0px #000 !important; /* Slightly smaller shadow */
+        box-shadow: 8px 8px 0px #000 !important;
+        /* Slightly smaller shadow */
     }
 
     /* Heading: Compact & Bold */
     .contact-heading {
-        font-size: 2rem !important; /* Much smaller than 3.5rem */
+        font-size: 2rem !important;
+        /* Much smaller than 3.5rem */
         line-height: 1 !important;
         margin-bottom: 10px !important;
     }
@@ -1738,23 +1841,27 @@ footer {
 
     /* Form: High Density */
     .comic-form {
-        gap: 12px !important; /* Tighter field spacing */
+        gap: 12px !important;
+        /* Tighter field spacing */
     }
 
     .form-group label {
-        font-size: 0.7rem !important; /* Smaller labels */
+        font-size: 0.7rem !important;
+        /* Smaller labels */
         margin-bottom: 4px !important;
     }
 
     .comic-form input,
     .comic-form textarea {
-        padding: 10px !important; /* Slimmer inputs */
+        padding: 10px !important;
+        /* Slimmer inputs */
         font-size: 0.95rem !important;
         height: auto !important;
     }
 
     .comic-form textarea {
-        rows: 3 !important; /* Shorter text area default */
+        height: 80px !important;
+        /* Shorter text area default */
     }
 
     /* Button: Full Width thumb target */
@@ -1763,7 +1870,7 @@ footer {
         padding: 14px 0 !important;
         margin-top: 5px !important;
     }
-    
+
     /* Adjust decoration line position for tighter padding */
     .contact-panel-wrapper::before {
         top: -20px !important;
@@ -1774,32 +1881,37 @@ footer {
 
 /* --- Refined Mobile Project Card Layout --- */
 @media (max-width: 767px) {
+
     /* Container & Layout */
     .case-file-panel {
-        padding: 0 !important; /* Reset internal padding */
+        padding: 0 !important;
+        /* Reset internal padding */
         display: flex !important;
         flex-direction: column !important;
-        box-shadow: 6px 6px 0px #000 !important; /* Reduced shadow */
+        box-shadow: 6px 6px 0px #000 !important;
+        /* Reduced shadow */
         margin-bottom: 30px !important;
         width: 100% !important;
         max-width: 100% !important;
     }
 
-    .case-header, 
+    .case-header,
     .case-body {
-        padding: 20px !important; /* Consistent padding */
+        padding: 20px !important;
+        /* Consistent padding */
         width: 100% !important;
         box-sizing: border-box !important;
     }
-    
+
     .case-header {
-         border-bottom: 2px solid #000;
-         padding-bottom: 15px !important;
-         display: flex !important;
-         flex-direction: row !important; /* Keep ID and status side-by-side if they fit, or wrap */
-         justify-content: space-between !important;
-         align-items: center !important;
-         gap: 10px;
+        border-bottom: 2px solid #000;
+        padding-bottom: 15px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        /* Keep ID and status side-by-side if they fit, or wrap */
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 10px;
     }
 
     /* Typography fixes */
@@ -1808,32 +1920,33 @@ footer {
         line-height: 1.2 !important;
         margin-bottom: 15px !important;
         margin-top: 0 !important;
-        
+
         /* Prevent ugly breaks */
         hyphens: none !important;
-        word-break: normal !important; 
-        overflow-wrap: break-word !important; 
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
     }
 
     .case-brief {
         font-size: 0.95rem !important;
         line-height: 1.65 !important;
         margin-bottom: 20px !important;
-        
+
         /* Clean reading */
         hyphens: none !important;
-        text-align: left !important; /* Reset justify if it causes weird gaps on small col */
+        text-align: left !important;
+        /* Reset justify if it causes weird gaps on small col */
     }
 
     /* Tech Specs & Tags */
     .case-specs {
         margin-bottom: 25px !important;
     }
-    
+
     .tech-tags {
         gap: 8px !important;
     }
-    
+
     .tag {
         font-size: 0.75rem !important;
         padding: 4px 8px !important;
@@ -1851,7 +1964,8 @@ footer {
     .btn-action {
         width: 100% !important;
         justify-content: center !important;
-        min-height: 48px !important; /* Large tap target */
+        min-height: 48px !important;
+        /* Large tap target */
         margin: 0 !important;
         font-size: 1rem !important;
     }
@@ -1860,6 +1974,7 @@ footer {
 
 /* --- Mobile Skills Loadout Refinement --- */
 @media (max-width: 767px) {
+
     /* Stack Vertically */
     .skills-arsenal-wrapper {
         display: flex !important;
@@ -1869,16 +1984,18 @@ footer {
 
     /* Category Card Polish */
     .skill-category-panel {
-        box-shadow: 6px 6px 0px #000 !important; /* Reduced shadow */
-        transform: none !important; /* No hover movement */
+        box-shadow: 6px 6px 0px #000 !important;
+        /* Reduced shadow */
+        transform: none !important;
+        /* No hover movement */
         transition: none !important;
         width: 100% !important;
     }
-    
+
     .category-header {
         padding: 12px 15px !important;
     }
-    
+
     .category-header h3 {
         font-size: 1rem !important;
     }
@@ -1894,19 +2011,22 @@ footer {
     .ability-card {
         width: 100% !important;
         box-sizing: border-box !important;
-        min-height: 48px !important; /* Touch friendly target */
+        min-height: 48px !important;
+        /* Touch friendly target */
         margin: 0 !important;
         padding: 10px 15px !important;
-        
+
         /* Layout */
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        
+
         /* Visuals */
         box-shadow: none !important;
-        transform: none !important; /* Disable hover scale */
-        border: 1px solid #ddd !important; /* Softer border */
+        transform: none !important;
+        /* Disable hover scale */
+        border: 1px solid #ddd !important;
+        /* Softer border */
         background: #f9f9f9 !important;
     }
 
@@ -1922,15 +2042,18 @@ footer {
         font-weight: 600 !important;
         color: #333 !important;
     }
-    
-    .ability-card i, 
+
+    .ability-card i,
     .skill-icon-img {
         font-size: 1.2rem !important;
         color: #000 !important;
-        width: 20px !important; /* Fix img size */
+        width: 20px !important;
+        /* Fix img size */
         height: auto !important;
-        transform: none !important; /* No zoom */
-        filter: none !important; /* No glow */
+        transform: none !important;
+        /* No zoom */
+        filter: none !important;
+        /* No glow */
     }
 
     /* Ensure no unwanted hover states trigger on touch */
@@ -1943,13 +2066,17 @@ footer {
 
 /* --- Dark Tech Mobile Menu Redesign --- */
 @media (max-width: 767px) {
+
     /* 1. Modal Container: Dark & Sharp */
     .nav-links {
-        background: #0d0d0d !important; /* Solid dark */
-        border: 1px solid #333 !important; /* Tech border */
-        border-radius: 12px !important; /* Sharp/Tech corners */
-        box-shadow: 0 40px 80px rgba(0,0,0,0.8) !important;
-        
+        background: #0d0d0d !important;
+        /* Solid dark */
+        border: 1px solid #333 !important;
+        /* Tech border */
+        border-radius: 12px !important;
+        /* Sharp/Tech corners */
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8) !important;
+
         /* Centering */
         position: fixed !important;
         top: 50% !important;
@@ -1958,13 +2085,14 @@ footer {
         max-width: 350px !important;
         height: auto !important;
         padding: 40px 20px !important;
-        
+
         /* Animation State */
         transform: translate(-50%, -60%) scale(0.95) !important;
         opacity: 0 !important;
         visibility: hidden !important;
         transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
-        backdrop-filter: none !important; /* Remove glass */
+        backdrop-filter: none !important;
+        /* Remove glass */
         z-index: 2005 !important;
     }
 
@@ -1989,7 +2117,7 @@ footer {
         transform: translateX(-10px);
         transition: all 0.3s ease 0.1s;
     }
-    
+
     .nav-links.active li {
         opacity: 1;
         transform: translateX(0);
@@ -1998,9 +2126,11 @@ footer {
     .nav-links a {
         display: block !important;
         font-family: var(--font-heading) !important;
-        font-size: 1.5rem !important; /* Big & Bold */
+        font-size: 1.5rem !important;
+        /* Big & Bold */
         font-weight: 800 !important;
-        color: #666 !important; /* Dimmed default */
+        color: #666 !important;
+        /* Dimmed default */
         text-transform: uppercase;
         text-decoration: none !important;
         padding: 5px 0 5px 15px !important;
@@ -2014,8 +2144,9 @@ footer {
     .nav-links a.active {
         color: #fff !important;
         border-left-color: var(--accent-secondary) !important;
-        padding-left: 20px !important; /* Slide visual */
-        background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+        padding-left: 20px !important;
+        /* Slide visual */
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
     }
 
     /* 3. Internal Close Button (Injected via JS) */
@@ -2034,7 +2165,7 @@ footer {
         cursor: pointer !important;
         z-index: 2010 !important;
     }
-    
+
     .menu-close-btn::before,
     .menu-close-btn::after {
         content: '';
@@ -2044,7 +2175,7 @@ footer {
         background: #fff;
         transform: rotate(45deg);
     }
-    
+
     .menu-close-btn::after {
         transform: rotate(-45deg);
     }
@@ -2059,19 +2190,22 @@ footer {
 
 /* --- Add Hover Pop to Contact Section --- */
 .contact-panel-wrapper {
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Ensure smooth transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    /* Ensure smooth transition */
 }
 
 .contact-panel-wrapper:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 16px 16px 0px #000; /* Increased shadow for pop effect */
+    box-shadow: 16px 16px 0px #000;
+    /* Increased shadow for pop effect */
 }
 
 /* On mobile, disable this hover if needed, or keep it subtle */
 @media (max-width: 767px) {
     .contact-panel-wrapper:hover {
         transform: none !important;
-        box-shadow: 8px 8px 0px #000 !important; /* Reset to static mobile state */
+        box-shadow: 8px 8px 0px #000 !important;
+        /* Reset to static mobile state */
     }
 }
 
@@ -2080,7 +2214,7 @@ footer {
 .comic-form input:hover,
 .comic-form textarea:hover {
     transform: translateY(-2px);
-    box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
     border-color: #666;
 }
 
@@ -2096,7 +2230,8 @@ footer {
 /* --- Compact Desktop Project Card Layout --- */
 @media (min-width: 768px) {
     .case-body {
-        padding: 20px 25px !important; /* Tighter padding */
+        padding: 20px 25px !important;
+        /* Tighter padding */
     }
 
     .case-title {
@@ -2115,24 +2250,27 @@ footer {
     /* Layout Change: Specs and Actions on same row to save height */
     .case-specs {
         margin-bottom: 0 !important;
-        flex: 1; /* Take available width */
+        flex: 1;
+        /* Take available width */
     }
-    
+
     .tech-tags {
-        margin-bottom: 10px; /* Spacer if wrapping occurs */
+        margin-bottom: 10px;
+        /* Spacer if wrapping occurs */
     }
 
     .case-actions {
-        margin-top: 15px !important; /* Reduced from 30px */
+        margin-top: 15px !important;
+        /* Reduced from 30px */
         padding-top: 15px !important;
         border-top: 1px dashed #ccc !important;
-        
+
         /* Attempt to inline if wide enough, otherwise just tight stack */
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
     }
-    
+
     /* If we want Specs and Actions side-by-side, we need a wrapper or grid. 
        Since HTML structure is fixed, let's keep them stacked but VERY tight.
        Or... .case-body is a block. 
@@ -2148,14 +2286,16 @@ footer {
 @media (min-width: 1024px) {
     .case-body {
         display: grid !important;
-        grid-template-areas: 
+        grid-template-areas:
             'title title'
             'brief brief'
             'specs actions';
-        grid-template-columns: 1fr auto !important; /* Specs take space, Actions hug content */
+        grid-template-columns: 1fr auto !important;
+        /* Specs take space, Actions hug content */
         gap: 15px !important;
         padding: 25px !important;
-        align-items: end !important; /* Bottom align footer items */
+        align-items: end !important;
+        /* Bottom align footer items */
     }
 
     .case-title {
@@ -2172,6 +2312,7 @@ footer {
         /* Limit to 3 lines visually for compact feel */
         display: -webkit-box;
         -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -2185,21 +2326,22 @@ footer {
         grid-area: actions !important;
         margin-top: 0 !important;
         padding-top: 0 !important;
-        border-top: none !important; /* Remove separator line in this layout */
+        border-top: none !important;
+        /* Remove separator line in this layout */
         justify-self: end !important;
         display: flex !important;
         gap: 10px !important;
     }
-    
+
     .tech-tags {
         gap: 6px !important;
     }
-    
+
     .tag {
         font-size: 0.75rem !important;
         padding: 3px 8px !important;
     }
-    
+
     .btn-action {
         padding: 8px 16px !important;
         font-size: 0.85rem !important;
@@ -2210,26 +2352,31 @@ footer {
 /* --- Compact Desktop Contact Section --- */
 @media (min-width: 769px) {
     .contact-panel-wrapper {
-        max-width: 800px !important; /* Reduced width */
-        padding: 35px 40px !important; /* Reduced padding (vertical/horizontal) */
-        gap: 40px !important; /* Tighter gap */
+        max-width: 800px !important;
+        /* Reduced width */
+        padding: 35px 40px !important;
+        /* Reduced padding (vertical/horizontal) */
+        gap: 40px !important;
+        /* Tighter gap */
     }
 
     .contact-heading {
-        font-size: 3rem !important; /* Slightly smaller */
+        font-size: 3rem !important;
+        /* Slightly smaller */
         margin-bottom: 15px !important;
     }
-    
+
     .contact-brief {
         font-size: 1rem !important;
-        max-width: 100% !important; /* Let it fill the smaller column */
+        max-width: 100% !important;
+        /* Let it fill the smaller column */
     }
-    
+
     /* Ensure form is tight too */
     .comic-form {
         gap: 15px !important;
     }
-    
+
     .comic-form input,
     .comic-form textarea {
         padding: 10px 12px !important;
@@ -2240,7 +2387,8 @@ footer {
 /* --- Profile Image: Scroll & Hover Color Effect (Global) --- */
 .profile-frame img {
     filter: grayscale(100%);
-    transition: filter 0.6s cubic-bezier(0.33, 1, 0.68, 1); /* Smooth transition */
+    transition: filter 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+    /* Smooth transition */
 }
 
 /* Colorize on Hover OR when Centered (active-color) */
@@ -2258,7 +2406,8 @@ footer {
         left: 0;
         width: 100%;
         display: flex;
-        justify-content: center; /* Center navigation */
+        justify-content: center;
+        /* Center navigation */
         padding: 25px 0;
         z-index: 2000;
         transition: all 0.3s ease-in-out;
@@ -2268,13 +2417,14 @@ footer {
 
     /* Scrolled State: Compact Command Bar */
     .desktop-sticky-header.scrolled {
-        background: rgba(13, 13, 13, 0.95); /* Near black */
+        background: rgba(13, 13, 13, 0.95);
+        /* Near black */
         backdrop-filter: blur(10px);
         padding: 15px 0;
         border-bottom: 1px solid var(--accent-secondary);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
-    
+
     /* Ensure nav links flow horizontally */
     .desktop-sticky-header .nav-links {
         display: flex !important;
@@ -2284,21 +2434,25 @@ footer {
         margin: 0;
         padding: 0;
         list-style: none;
-        background: transparent !important; /* Remove any mobile bg */
+        background: transparent !important;
+        /* Remove any mobile bg */
         box-shadow: none !important;
-        position: static !important; /* Not absolute */
+        position: static !important;
+        /* Not absolute */
         width: auto !important;
         height: auto !important;
     }
 
     .desktop-sticky-header .nav-links li {
         margin: 0 !important;
-        opacity: 1 !important; /* Ensure visible */
+        opacity: 1 !important;
+        /* Ensure visible */
         transform: none !important;
     }
 
     .desktop-sticky-header .nav-links a {
-        color: #fff; /* White text on dark bg */
+        color: #fff;
+        /* White text on dark bg */
         font-family: var(--font-heading);
         font-size: 0.9rem;
         font-weight: 700;
@@ -2313,7 +2467,7 @@ footer {
     .desktop-sticky-header .nav-links a:hover {
         color: var(--accent-secondary);
     }
-    
+
     /* Active Link Indicator (Need generic class or simply hover style) */
     .desktop-sticky-header .nav-links a::after {
         content: '';
@@ -2341,15 +2495,16 @@ footer {
         width: 100%;
         display: flex;
         justify-content: center;
-        padding: 15px 0; /* Compact padding */
+        padding: 15px 0;
+        /* Compact padding */
         z-index: 2000;
-        
+
         /* Dark System Style (Always Active for this element) */
         background: rgba(13, 13, 13, 0.95);
         backdrop-filter: blur(10px);
         border-bottom: 1px solid var(--accent-secondary);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
         /* Hidden by default (Slide out of view) */
         transform: translateY(-100%);
         transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2359,18 +2514,18 @@ footer {
     .desktop-sticky-header.visible {
         transform: translateY(0);
     }
-    
+
     /* Child link styling (same as before) */
     .desktop-sticky-header .sticky-cloned-nav {
-         display: flex;
-         flex-direction: row;
-         gap: 40px;
-         align-items: center;
-         margin: 0;
-         padding: 0;
-         list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
-    
+
     .desktop-sticky-header a {
         color: #fff;
         font-family: var(--font-heading);
@@ -2386,7 +2541,7 @@ footer {
     .desktop-sticky-header a:hover {
         color: var(--accent-secondary);
     }
-    
+
     .desktop-sticky-header a::after {
         content: '';
         position: absolute;
@@ -2426,10 +2581,12 @@ footer {
 
 /* --- Staggered Sticky Nav Animation --- */
 @media (min-width: 768px) {
+
     /* Initial State for Cloned Items */
     .desktop-sticky-header .sticky-cloned-nav li {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly down */
+        transform: translateY(20px);
+        /* Start slightly down */
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -2440,11 +2597,25 @@ footer {
     }
 
     /* Stagger delays for 'follow' effect */
-    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(1) { transition-delay: 0.05s; }
-    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(2) { transition-delay: 0.1s; }
-    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(3) { transition-delay: 0.15s; }
-    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(4) { transition-delay: 0.2s; }
-    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(5) { transition-delay: 0.25s; }
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(1) {
+        transition-delay: 0.05s;
+    }
+
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(2) {
+        transition-delay: 0.1s;
+    }
+
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(3) {
+        transition-delay: 0.15s;
+    }
+
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(4) {
+        transition-delay: 0.2s;
+    }
+
+    .desktop-sticky-header.visible .sticky-cloned-nav li:nth-child(5) {
+        transition-delay: 0.25s;
+    }
 }
 
 
@@ -2481,7 +2652,7 @@ footer {
     .hero-nav .nav-links li:last-child {
         display: none;
     }
-    
+
     /* Ensure it IS visible in sticky nav */
     .sticky-cloned-nav li:last-child {
         display: block;
@@ -2493,6 +2664,7 @@ footer {
 
 /* 1. DESKTOP HERO NAV (White Box) - CLEAN STATE */
 @media (min-width: 768px) {
+
     /* Hide Contact Link in White Box */
     .hero-nav .nav-links li:last-child {
         display: none !important;
@@ -2505,14 +2677,16 @@ footer {
         background: none !important;
         border: none !important;
     }
-    
+
     .hero-nav .nav-links a.active-section::after {
-        width: 0 !important; /* Kill underline */
+        width: 0 !important;
+        /* Kill underline */
     }
 }
 
 /* 2. DESKTOP STICKY NAV (Command Bar) - ACTIVE STATE */
 @media (min-width: 768px) {
+
     /* Show Contact Link in Command Bar */
     .desktop-sticky-header .sticky-cloned-nav li:last-child {
         display: block !important;
@@ -2523,7 +2697,7 @@ footer {
         color: #fff !important;
         text-shadow: 0 0 8px var(--accent-secondary), 0 0 15px var(--accent-secondary) !important;
     }
-    
+
     /* Enable Active Underline in Command Bar */
     .desktop-sticky-header .sticky-cloned-nav a.active-section::after {
         width: 100% !important;
@@ -2534,6 +2708,7 @@ footer {
 /* --- ULTIMATE NAV FIX: CLASS BASED & COLOR CORRECTION --- */
 
 @media (min-width: 768px) {
+
     /* 1. Force Hide Contact in White Box */
     .hero-nav .nav-contact-item {
         display: none !important;
@@ -2546,14 +2721,16 @@ footer {
 
     /* 3. FIX INVISIBLE ACTIVE LINK (White Box) */
     .hero-nav .nav-links a.active-section {
-        color: #000 !important; /* Force BLACK text on white background */
+        color: #000 !important;
+        /* Force BLACK text on white background */
         text-shadow: none !important;
         background: none !important;
         border-bottom: none !important;
-        font-weight: 800 !important; /* Maintain bold weight */
+        font-weight: 800 !important;
+        /* Maintain bold weight */
         opacity: 1 !important;
     }
-    
+
     .hero-nav .nav-links a.active-section::after {
         width: 0 !important;
     }
@@ -2570,28 +2747,36 @@ footer {
 @media (min-width: 768px) {
     .desktop-sticky-header {
         /* 1. Compact & Engineered Base */
-        background: rgba(10, 10, 10, 0.98) !important; /* Deep dark, almost solid */
+        background: rgba(10, 10, 10, 0.98) !important;
+        /* Deep dark, almost solid */
         backdrop-filter: blur(8px) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important; /* Subtle divider */
-        box-shadow: none !important; /* Clean, no shadow */
-        padding: 10px 0 !important; /* Reduced vertical padding */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        /* Subtle divider */
+        box-shadow: none !important;
+        /* Clean, no shadow */
+        padding: 10px 0 !important;
+        /* Reduced vertical padding */
         height: auto !important;
     }
 
     /* 2. Link Typography & Interaction */
     .sticky-cloned-nav a {
-        color: #fff !important; /* Always White */
+        color: #fff !important;
+        /* Always White */
         font-family: var(--font-heading);
-        font-size: 0.85rem !important; /* Slightly smaller, precise */
+        font-size: 0.85rem !important;
+        /* Slightly smaller, precise */
         font-weight: 600 !important;
-        letter-spacing: 1.5px !important; /* Wider tracking */
+        letter-spacing: 1.5px !important;
+        /* Wider tracking */
         opacity: 0.8;
         transition: opacity 0.2s ease;
     }
 
     .sticky-cloned-nav a:hover {
         opacity: 1;
-        color: #fff !important; /* No color shift */
+        color: #fff !important;
+        /* No color shift */
     }
 
     /* 3. Center-Out Underline Animation */
@@ -2603,26 +2788,32 @@ footer {
         width: 100%;
         height: 2px;
         background: var(--accent-secondary);
-        transform: scaleX(0); /* Hidden */
-        transform-origin: center; /* Center out */
+        transform: scaleX(0);
+        /* Hidden */
+        transform-origin: center;
+        /* Center out */
         transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .sticky-cloned-nav a:hover::after {
-        transform: scaleX(1); /* Reveal */
+        transform: scaleX(1);
+        /* Reveal */
     }
 
     /* 4. Active State: Persistent Glow & Underline */
     .sticky-cloned-nav a.active-section {
         opacity: 1 !important;
-        text-shadow: 0 0 12px rgba(100, 255, 218, 0.6) !important; /* Soft Glow */
+        text-shadow: 0 0 12px rgba(100, 255, 218, 0.6) !important;
+        /* Soft Glow */
     }
 
     .sticky-cloned-nav a.active-section::after {
-        transform: scaleX(1) !important; /* Persistent underline */
-        box-shadow: 0 0 10px rgba(100, 255, 218, 0.6); /* Glow on line too */
+        transform: scaleX(1) !important;
+        /* Persistent underline */
+        box-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
+        /* Glow on line too */
     }
-    
+
     /* 5. Ensure Contact Link Logic Persists */
     .desktop-sticky-header .sticky-cloned-nav .nav-contact-item {
         display: block !important;
@@ -2632,10 +2823,12 @@ footer {
 
 /* --- Fix Home Link Hover Animation in White Box --- */
 @media (min-width: 768px) {
+
     /* Allow hover underline even if active-section class is present */
     .hero-nav .nav-links a.active-section:hover::after {
         width: 100% !important;
-        background: #000 !important; /* Ensure black underline on white bg */
+        background: #000 !important;
+        /* Ensure black underline on white bg */
     }
 }
 
@@ -2643,8 +2836,10 @@ footer {
 /* --- Refined Sticky Nav Transparency --- */
 @media (min-width: 768px) {
     .desktop-sticky-header {
-        background: rgba(13, 13, 13, 0.85) !important; /* increased transparency from 0.95 */
-        backdrop-filter: blur(12px) !important; /* slightly stronger blur to compensate */
+        background: rgba(13, 13, 13, 0.85) !important;
+        /* increased transparency from 0.95 */
+        backdrop-filter: blur(12px) !important;
+        /* slightly stronger blur to compensate */
     }
 }
 
@@ -2656,15 +2851,17 @@ footer {
         top: 0;
         left: 0;
         width: 100%;
-        height: 70px; /* Comfortable touch height */
+        height: 70px;
+        /* Comfortable touch height */
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 20px;
-        z-index: 2001; /* Below modal (2005), above content */
+        z-index: 2001;
+        /* Below modal (2005), above content */
         transition: all 0.3s ease;
         box-sizing: border-box;
-        
+
         /* Initial State: Transparent */
         background: transparent;
         backdrop-filter: none;
@@ -2677,7 +2874,7 @@ footer {
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     /* Mobile Brand (Left Side) */
@@ -2688,10 +2885,17 @@ footer {
         color: #fff;
         text-transform: uppercase;
         letter-spacing: 1px;
-        opacity: 0; /* Hidden initially, fades in */
+        opacity: 0;
+        /* Hidden initially, fades in */
         transform: translateY(-10px);
         transition: all 0.3s ease;
-        text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+        /* FIX: Prevent Overlap */
+        margin-right: 20px;
+        position: relative;
+        z-index: 2002;
+        flex-shrink: 0;
     }
 
     .mobile-sticky-bar.visible .mobile-brand {
@@ -2701,21 +2905,24 @@ footer {
 
     /* Hamburger Adjustment when inside Bar */
     .mobile-sticky-bar .hamburger {
-        position: relative !important; /* Reset fixed positioning */
+        position: relative !important;
+        /* Reset fixed positioning */
         top: auto !important;
         right: auto !important;
-        background: transparent !important; /* Remove white backing plate */
+        background: transparent !important;
+        /* Remove white backing plate */
         box-shadow: none !important;
         padding: 0 !important;
         margin: 0 !important;
     }
-    
+
     /* Ensure hamburger bars are visible against dark/light */
     .mobile-sticky-bar .hamburger .bar {
-        background-color: #000; /* Default (on light hero) - wait, hero is white card? */
+        background-color: #000;
+        /* Default (on light hero) - wait, hero is white card? */
         transition: background-color 0.3s;
     }
-    
+
     /* When bar is dark, make bars white */
     .mobile-sticky-bar.visible .hamburger .bar {
         background-color: #fff;
@@ -2725,6 +2932,7 @@ footer {
 
 /* --- Mobile Horizontal Scroll Nav (User Request) --- */
 @media (max-width: 767px) {
+
     /* 1. Hide Hamburger Completely */
     .hamburger {
         display: none !important;
@@ -2732,22 +2940,32 @@ footer {
 
     /* 2. Style Horizontal Nav List */
     .mobile-scroll-nav {
-        display: flex; /* Horizontal Layout */
-        flex: 1; /* Take remaining space */
-        justify-content: flex-end; /* Align right */
+        display: flex;
+        /* Horizontal Layout */
+        flex: 1;
+        /* Take remaining space */
+        justify-content: flex-end;
+        /* Align right */
         align-items: center;
-        gap: 15px; /* Spacing between links */
+        gap: 15px;
+        /* Spacing between links */
         list-style: none;
         margin: 0;
-        padding: 0 0 0 15px; /* Left padding for separation */
-        overflow-x: auto; /* Allow scrolling if tight */
-        white-space: nowrap; /* No wrapping */
-        scrollbar-width: none; /* Hide scrollbar Firefox */
-        -webkit-overflow-scrolling: touch; /* Smooth scroll */
+        padding: 0 0 0 15px;
+        /* Left padding for separation */
+        overflow-x: auto;
+        /* Allow scrolling if tight */
+        white-space: nowrap;
+        /* No wrapping */
+        scrollbar-width: none;
+        /* Hide scrollbar Firefox */
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scroll */
     }
 
     .mobile-scroll-nav::-webkit-scrollbar {
-        display: none; /* Hide scrollbar Chrome/Safari */
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
     }
 
     /* 3. Link Styling */
@@ -2759,7 +2977,8 @@ footer {
     .mobile-scroll-nav a {
         color: rgba(255, 255, 255, 0.7) !important;
         font-family: var(--font-heading);
-        font-size: 0.75rem !important; /* Compact size */
+        font-size: 0.75rem !important;
+        /* Compact size */
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -2786,7 +3005,7 @@ footer {
         background: var(--accent-secondary);
         box-shadow: 0 0 5px var(--accent-secondary);
     }
-    
+
     /* Ensure Contact is visible */
     .mobile-scroll-nav .nav-contact-item {
         display: block !important;
@@ -2796,12 +3015,14 @@ footer {
 
 /* --- Fix Mobile Scroll Nav Visibility --- */
 @media (max-width: 767px) {
+
     /* Initially Hidden (Float up slightly) */
     .mobile-scroll-nav {
         opacity: 0;
         transform: translateY(-10px);
         transition: all 0.3s ease;
-        pointer-events: none; /* Prevent clicks when hidden */
+        pointer-events: none;
+        /* Prevent clicks when hidden */
     }
 
     /* Visible on Scroll */
@@ -2817,7 +3038,8 @@ footer {
 @media (min-width: 768px) {
     .desktop-brand {
         position: absolute;
-        left: 40px; /* Aligned left */
+        left: 40px;
+        /* Aligned left */
         top: 50%;
         transform: translateY(-50%);
         font-family: var(--font-heading);
@@ -2826,7 +3048,7 @@ footer {
         color: #fff;
         text-transform: uppercase;
         letter-spacing: 1px;
-        text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         opacity: 0;
         transition: opacity 0.3s ease;
     }
@@ -2842,7 +3064,8 @@ footer {
 @media (min-width: 768px) {
     .desktop-cta {
         position: absolute;
-        right: 40px; /* Aligned right */
+        right: 40px;
+        /* Aligned right */
         top: 50%;
         transform: translateY(-50%);
         font-family: var(--font-heading);
@@ -2856,20 +3079,21 @@ footer {
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 4px;
         transition: all 0.3s ease;
-        opacity: 0; /* Hidden initially */
+        opacity: 0;
+        /* Hidden initially */
     }
 
     /* Reveal only when sticky header is visible */
     .desktop-sticky-header.visible .desktop-cta {
         opacity: 1;
     }
-    
+
     .desktop-cta:hover {
         background: #fff;
         color: #000;
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
     }
-    
+
     /* Hide duplicate Contact link in the centered nav */
     .sticky-cloned-nav .nav-contact-item {
         display: none !important;
@@ -2882,7 +3106,8 @@ footer {
     .desktop-sticky-header {
         /* Align Items: Space Between (Brand Left, Nav Right) */
         justify-content: space-between !important;
-        padding: 15px 5% !important; /* Horizontal Padding */
+        padding: 15px 5% !important;
+        /* Horizontal Padding */
         box-sizing: border-box;
     }
 
@@ -2892,13 +3117,14 @@ footer {
         left: auto !important;
         top: auto !important;
         transform: none !important;
-        
+
         /* Ensure Visibility Transitions work */
         opacity: 0;
         transition: opacity 0.3s ease;
-        margin-right: 20px; /* Spacing just in case */
+        margin-right: 20px;
+        /* Spacing just in case */
     }
-    
+
     .desktop-sticky-header.visible .desktop-brand {
         opacity: 1;
     }
@@ -2907,7 +3133,7 @@ footer {
     .sticky-cloned-nav {
         margin: 0 !important;
         justify-content: flex-end !important;
-        flex: 1; /* Take remaining space if needed */
+        flex: 1;
+        /* Take remaining space if needed */
     }
 }
-
