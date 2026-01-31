@@ -3250,3 +3250,28 @@ footer {
         margin-bottom: 15px !important;
     }
 }
+
+/* --- HANGING INDENT FOR NUMBERED TITLES --- */
+@media (max-width: 767px) {
+    .section-title {
+        display: flex !important;
+        align-items: baseline !important;
+        gap: 12px !important;
+        white-space: normal !important;
+        /* Allow wrap */
+        width: 100% !important;
+    }
+
+    .section-title span {
+        flex-shrink: 0 !important;
+        /* Prevent number from squishing */
+    }
+}
+
+/* --- SPECIFIC SPACING FOR WHAT'S NEXT --- */
+@media (max-width: 767px) {
+    #contact .section-title {
+        margin-bottom: 45px !important;
+        /* Visual 'extra line' */
+    }
+}
