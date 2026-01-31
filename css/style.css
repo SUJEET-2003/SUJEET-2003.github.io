@@ -1056,8 +1056,11 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100dvh;
+    /* Fix: Dynamic viewport height */
+    min-height: 100%;
+    /* Fallback */
     background: #0a0a0a;
     z-index: 9999;
     display: flex;
@@ -3207,15 +3210,16 @@ footer {
 /* --- TEXT ALIGNMENT & SINGLE LINE HEADERS --- */
 @media (max-width: 767px) {
 
-    /* Justify Body Text */
     p,
     .about-text,
     .bio-text,
     .case-brief,
     .contact-brief {
         text-align: justify !important;
+        /* Re-applied Justify */
         text-justify: inter-word !important;
         hyphens: auto !important;
+        /* Re-enable hyphenation for better spacing */
         font-size: 0.85rem !important;
         /* Smaller body text */
         line-height: 1.5 !important;
@@ -3274,4 +3278,158 @@ footer {
         margin-bottom: 45px !important;
         /* Visual 'extra line' */
     }
+}
+
+/* --- MOBILE REFINEMENTS (FINAL) --- */
+@media (max-width: 767px) {
+
+    /* 1. Slimmer Navigation */
+    .mobile-sticky-bar {
+        height: 60px !important;
+        padding: 0 15px !important;
+    }
+
+    .mobile-brand {
+        font-size: 1.2rem !important;
+        left: 30px !important;
+        /* Adjust if hamburger is near */
+    }
+
+    /* 2. About Section Refinement */
+    .about-profile-wrapper {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+    }
+
+    .profile-card-left {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .profile-frame {
+        /* max-width removed to Restore Original Size */
+        width: 100% !important;
+        border: 2px solid #222 !important;
+        /* Soften border */
+        transform: none !important;
+        box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* 3. Typography Readability */
+    p,
+    .bio-text,
+    .about-text {
+        font-size: 0.9rem !important;
+        line-height: 1.8 !important;
+        max-width: 100% !important;
+        letter-spacing: 0.02em;
+    }
+
+    /* 4. Fix Hamburger Position if needed for 60px bar */
+    .mobile-sticky-bar .hamburger {
+        transform: scale(0.8);
+    }
+}
+
+/* --- MOBILE HEADERS & FOOTER STANDARDIZATION --- */
+@media (max-width: 767px) {
+
+    /* Force all numbered headers (01-04) to same size */
+    .section-title {
+        font-size: 1.5rem !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Reduce Footer Signature */
+    .footer-signature {
+        font-size: 0.7rem !important;
+        opacity: 0.6 !important;
+        letter-spacing: 0.5px !important;
+        margin-top: 15px !important;
+    }
+}
+
+/* --- FINAL MOBILE TEXT REFINEMENTS --- */
+@media (max-width: 767px) {
+
+    /* Shrink ESTABLISH CONNECTION */
+    .contact-heading {
+        font-size: 1.5rem !important;
+        /* Was 2rem */
+        letter-spacing: 0.5px !important;
+        line-height: 1.1 !important;
+    }
+
+    /* Force Footer to One Line & Center */
+    .footer-signature {
+        font-size: 0.75rem !important;
+        /* Increased visibility */
+        text-align: center !important;
+        width: 100% !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: block !important;
+        opacity: 0.8 !important;
+    }
+}
+
+/* --- MOBILE TEXT READABILITY (LEFT ALIGN REVISION) --- */
+@media (max-width: 767px) {
+
+    p,
+    .bio-text,
+    .about-text,
+    .case-brief,
+    .contact-brief,
+    .hero-subtitle,
+    li:not(.nav-links li):not(.mobile-scroll-nav li) {
+        text-align: justify !important;
+        /* Force Justify */
+        text-justify: inter-word !important;
+        hyphens: auto !important;
+
+        font-size: 0.95rem !important;
+        line-height: 1.75 !important;
+
+        max-width: 100% !important;
+        /* Restore full width */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        display: block !important;
+    }
+
+    /* Ensure container allows centering */
+    .about-profile-wrapper,
+    .case-body,
+    .contact-content-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* --- FIX CASE TITLE WRAPPING --- */
+@media (max-width: 767px) {
+    .case-title {
+        font-size: 1.4rem !important;
+        hyphens: manual !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+    }
+}
+/* --- FIX BIO PANEL WIDTH --- */
+@media (max-width: 767px) {
+    .bio-panel {
+        border-left: none !important;
+        padding-left: 0 !important;
+        width: 100% !important;
+    }
+}
+
+/* --- ENABLE SMOOTH SCROLLING --- */
+html {
+    scroll-behavior: smooth !important;
 }
