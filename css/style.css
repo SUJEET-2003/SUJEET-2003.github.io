@@ -2961,6 +2961,10 @@ footer {
         /* Hide scrollbar Firefox */
         -webkit-overflow-scrolling: touch;
         /* Smooth scroll */
+
+        /* Polish: Fade out content as it hits the logo */
+        mask-image: linear-gradient(to right, transparent, black 20px);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 20px);
     }
 
     .mobile-scroll-nav::-webkit-scrollbar {
