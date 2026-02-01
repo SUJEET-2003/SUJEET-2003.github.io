@@ -3201,8 +3201,8 @@ footer {
     .container,
     .hero-container,
     section {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        /* padding-left: 20px !important;
+        padding-right: 20px !important; */
         box-sizing: border-box !important;
     }
 }
